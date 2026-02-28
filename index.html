@@ -125,6 +125,42 @@
         color: #1d6f42;
       }
 
+      .game-feedback {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 12px;
+      }
+
+      .game-feedback[hidden] {
+        display: none;
+      }
+
+      .feedback-image {
+        width: 96px;
+        height: auto;
+        flex: 0 0 auto;
+      }
+
+      .feedback-image.bounce {
+        animation: frog-hop 0.45s ease-out;
+      }
+
+      @keyframes frog-hop {
+        0% {
+          transform: translateY(0);
+        }
+        35% {
+          transform: translateY(-14px);
+        }
+        60% {
+          transform: translateY(2px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
       .word-btn {
         width: 100%;
         margin-top: 14px;
@@ -267,6 +303,46 @@
         font-size: 0.92rem;
       }
 
+      .attribution-panel {
+        margin-top: 18px;
+      }
+
+      .attribution-panel summary {
+        cursor: pointer;
+        list-style: none;
+      }
+
+      .attribution-panel summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .attribution-list {
+        display: grid;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .attribution-item {
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+      }
+
+      .attribution-item h3 {
+        margin: 0 0 6px;
+        font-size: 1rem;
+      }
+
+      .attribution-item p {
+        margin: 4px 0;
+        color: var(--muted);
+      }
+
+      .attribution-item a {
+        color: var(--blue);
+      }
+
       @media (max-width: 700px) {
         .topbar {
           flex-direction: column;
@@ -345,13 +421,29 @@
           </div>
         </div>
         <button id="wordButton" class="word-btn" type="button">Chargement...</button>
-        <div id="gameStatus" class="status"></div>
+        <div id="gameFeedback" class="game-feedback" hidden>
+          <div id="gameStatus" class="status"></div>
+          <img
+            id="wrongImage"
+            class="feedback-image"
+            src="./assets/images/image_non_small.png"
+            alt="Illustration d'erreur"
+            hidden
+          />
+        </div>
         <div id="ipaGrid" class="ipa-grid"></div>
         <div class="controls">
           <button id="replayButton" class="control-btn" type="button">Réécouter</button>
           <button id="nextButton" class="control-btn" type="button">Mot suivant</button>
         </div>
       </section>
+
+      <details id="attributionView" class="panel attribution-panel">
+        <summary class="section-title">Attributions audio Wiktionary</summary>
+        <p class="subhead">Crédits pour les fichiers audio récupérés depuis Wikimedia Commons / Wiktionary.</p>
+        <div id="attributionStatus" class="status"></div>
+        <div id="attributionList" class="attribution-list"></div>
+      </details>
     </main>
 
     <script>
@@ -392,6 +484,8 @@
         const tableContainer = document.getElementById("tableContainer");
         const wordButton = document.getElementById("wordButton");
         const gameStatus = document.getElementById("gameStatus");
+        const gameFeedback = document.getElementById("gameFeedback");
+        const wrongImage = document.getElementById("wrongImage");
         const ipaGrid = document.getElementById("ipaGrid");
         const replayButton = document.getElementById("replayButton");
         const nextButton = document.getElementById("nextButton");
@@ -399,6 +493,8 @@
         const reviewQueueInfo = document.getElementById("reviewQueueInfo");
         const weakSoundsInfo = document.getElementById("weakSoundsInfo");
         const masteredSoundsInfo = document.getElementById("masteredSoundsInfo");
+        const attributionStatus = document.getElementById("attributionStatus");
+        const attributionList = document.getElementById("attributionList");
 
         let records = [];
         let currentRecord = null;
@@ -426,6 +522,24 @@
           if (tone) {
             element.classList.add(tone);
           }
+        }
+
+        function setGameFeedback(text, tone = "", showWrongImage = false) {
+          if (!text) {
+            gameFeedback.hidden = true;
+            wrongImage.hidden = true;
+            wrongImage.classList.remove("bounce");
+            setStatus(gameStatus, "");
+            return;
+          }
+          gameFeedback.hidden = false;
+          wrongImage.hidden = !showWrongImage;
+          wrongImage.classList.remove("bounce");
+          if (showWrongImage) {
+            void wrongImage.offsetWidth;
+            wrongImage.classList.add("bounce");
+          }
+          setStatus(gameStatus, text, tone);
         }
 
         function showView(viewName) {
@@ -549,6 +663,44 @@
           const middle = escapeHtml(sourceWord.slice(index, index + sourceBold.length));
           const after = escapeHtml(sourceWord.slice(index + sourceBold.length));
           return `${before}<strong>${middle}</strong>${after}`;
+        }
+
+        function renderAttributions(data) {
+          const entries = Object.entries(data || {});
+          attributionList.innerHTML = "";
+          if (entries.length === 0) {
+            setStatus(attributionStatus, "Aucune attribution Wiktionary n'est disponible.");
+            return;
+          }
+
+          setStatus(
+            attributionStatus,
+            `${entries.length} attribution(s) audio chargée(s).`,
+            "ok"
+          );
+          const item = document.createElement("article");
+          item.className = "attribution-item";
+
+          const title = document.createElement("h3");
+          title.textContent = "Note d'attribution";
+          item.appendChild(title);
+
+          const summary = document.createElement("p");
+          summary.textContent =
+            "Une partie des fichiers audio provient de Wiktionary / Wikimedia Commons et d'un deck Anki utilisé pour l'étude.";
+          item.appendChild(summary);
+
+          const details = document.createElement("p");
+          details.innerHTML =
+            "Les métadonnées détaillées pour les fichiers récupérés depuis Wikimedia Commons sont conservées localement dans <code>audio_attribution.json</code>.";
+          item.appendChild(details);
+
+          const source = document.createElement("p");
+          source.innerHTML =
+            'Référence générale : <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a> / <a href="https://fr.wiktionary.org/" target="_blank" rel="noopener noreferrer">Wiktionary</a>.';
+          item.appendChild(source);
+
+          attributionList.appendChild(item);
         }
 
         function normalizeVoiceLang(lang) {
@@ -746,17 +898,13 @@
               stat.mastered = true;
               message = `Bonne réponse.`;
             }
-            setStatus(gameStatus, message, "ok");
+            setGameFeedback(message, "ok", false);
           } else {
             stat.wrong += 1;
             stat.streak = 0;
             stat.mastered = false;
             enqueueReview(currentRecord._id);
-            setStatus(
-              gameStatus,
-              `Mauvaise réponse.`,
-              "error"
-            );
+            setGameFeedback(`Mauvaise réponse.`, "error", true);
           }
           saveStoredStats();
           updateLearningDashboard();
@@ -767,7 +915,7 @@
             currentRecord = chooseNextRecord();
             const options = buildOptionsForCurrent(currentRecord);
             wordButton.innerHTML = renderWordLabel(currentRecord.word, currentRecord.bold);
-            setStatus(gameStatus, "");
+            setGameFeedback("");
             ipaGrid.innerHTML = "";
             updateLearningDashboard();
 
@@ -783,7 +931,7 @@
             currentRecord = null;
             ipaGrid.innerHTML = "";
             wordButton.textContent = "Impossible d'afficher une question";
-            setStatus(gameStatus, String(err.message || err), "error");
+            setGameFeedback(String(err.message || err), "error", false);
           }
         }
 
@@ -896,13 +1044,13 @@
         }
 
         async function loadData() {
-          const response = await fetch("./data/ipa_words.json");
+          const response = await fetch("./data/ipa_words.apkg_audio.updated.json");
           if (!response.ok) {
-            throw new Error("Impossible de charger ipa_words.json.");
+            throw new Error("Impossible de charger ipa_words.apkg_audio.updated.json.");
           }
           const json = await response.json();
           if (!Array.isArray(json) || json.length === 0) {
-            throw new Error("Le fichier ipa_words.json est vide.");
+            throw new Error("Le fichier ipa_words.apkg_audio.updated.json est vide.");
           }
 
           const normalized = Array.isArray(json[0]) ? json.flat() : json;
@@ -923,6 +1071,20 @@
             ...record,
             _id: index,
           }));
+        }
+
+        async function loadAttributions() {
+          try {
+            const response = await fetch("./audio_attribution.json");
+            if (!response.ok) {
+              throw new Error("Impossible de charger audio_attribution.json.");
+            }
+            const json = await response.json();
+            renderAttributions(json);
+          } catch (err) {
+            attributionList.innerHTML = "";
+            setStatus(attributionStatus, String(err.message || err), "error");
+          }
         }
 
         openTableMode.addEventListener("click", () => {
@@ -975,6 +1137,7 @@
         (async () => {
           try {
             await loadData();
+            await loadAttributions();
             renderTable();
             renderGameQuestion();
             setGameInteractiveEnabled(true);

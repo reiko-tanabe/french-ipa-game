@@ -1,0 +1,450 @@
+{
+  "apkg": "audio/5000_most_frequently_used_French_words_v_60.apkg",
+  "matched_count": 52,
+  "unmatched_count": 77,
+  "matched": [
+    {
+      "word": "idée",
+      "ipa": "i",
+      "audio_source": "ATTS audio02-c714c2efe9f554c01a062f089f6398200d0d20bf.mp3",
+      "audio_file": "audio/apkg_extracted/idee.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "livre",
+      "ipa": "i",
+      "audio_source": "ATTS audio02-d79c92a7f24d7b7e8d1de47caaccaf2e56b4e6e5.mp3",
+      "audio_file": "audio/apkg_extracted/livre.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "aller",
+      "ipa": "e",
+      "audio_source": "ATTS audio02-6d1b6ed215e7ccf54814ff0e3dc420c96abd0558.mp3",
+      "audio_file": "audio/apkg_extracted/aller.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "et",
+      "ipa": "e",
+      "audio_source": "ATTS audio02-c0e3588fc51e4a7ba85f51e1241c64149cb10b6c.mp3",
+      "audio_file": "audio/apkg_extracted/et.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "feu",
+      "ipa": "ø",
+      "audio_source": "ATTS audio02-fce9930019e5fa067fbb79fc19746e01f459f773.mp3",
+      "audio_file": "audio/apkg_extracted/feu.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "beau",
+      "ipa": "o",
+      "audio_source": "ATTS audio02-e8a5cb5a8322f22134fe5c8b97d5f132bee7e212.mp3",
+      "audio_file": "audio/apkg_extracted/beau.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "tôt",
+      "ipa": "o",
+      "audio_source": "ATTS audio02-79014db164130cd191904d115db6447b19f4092c.mp3",
+      "audio_file": "audio/apkg_extracted/tot.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "je",
+      "ipa": "ə",
+      "audio_source": "ATTS audio02-2293f453491b7e2ea1b687c200bb685fde1e1fa6.mp3",
+      "audio_file": "audio/apkg_extracted/je.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "demain",
+      "ipa": "ə",
+      "audio_source": "ATTS audio02-c4a5542cc551305ce7a1d046018c6734375a3f5d.mp3",
+      "audio_file": "audio/apkg_extracted/demain.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "mère",
+      "ipa": "ɛ",
+      "audio_source": "ATTS audio02-21d1ea5cb4d027d7034ae00bb2cac545f38059ae.mp3",
+      "audio_file": "audio/apkg_extracted/mere.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "jamais",
+      "ipa": "ɛ",
+      "audio_source": "ATTS audio02-90cb34f30cde79635929587247890e39ee5e4e83.mp3",
+      "audio_file": "audio/apkg_extracted/jamais.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "cœur",
+      "ipa": "œ",
+      "audio_source": "ATTS audio02-bd397f284fd6b9a3866110e39a8fd62341f75143.mp3",
+      "audio_file": "audio/apkg_extracted/c_ur.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "neuf",
+      "ipa": "œ",
+      "audio_source": "ATTS audio02-1cccc368cef85412670c238c7f5f2d87a8b3f5cf.mp3",
+      "audio_file": "audio/apkg_extracted/neuf.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "or",
+      "ipa": "ɔ",
+      "audio_source": "ATTS audio02-3765aa98b47d46ffe95b7b479e2034ff668813f8.mp3",
+      "audio_file": "audio/apkg_extracted/or.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "porte",
+      "ipa": "ɔ",
+      "audio_source": "ATTS audio02-171db691f2bf93bb347ea36ee39a59a9c6192da2.mp3",
+      "audio_file": "audio/apkg_extracted/porte.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "papa",
+      "ipa": "a",
+      "audio_source": "ATTS audio02-4fd93698036e94c96c1230bb0e696644312aa9ce.mp3",
+      "audio_file": "audio/apkg_extracted/papa.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "famille",
+      "ipa": "a",
+      "audio_source": "ATTS audio02-d778c0f9b8da8e847a22478e495c5279571ebc79.mp3",
+      "audio_file": "audio/apkg_extracted/famille.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "ananas",
+      "ipa": "ɑ",
+      "audio_source": "ATTS FrenchAudio (91).mp3",
+      "audio_file": "audio/apkg_extracted/ananas.mp3",
+      "model": "French irregular pronunciation"
+    },
+    {
+      "word": "matin",
+      "ipa": "ɛ̃",
+      "audio_source": "ATTS audio02-9d7d55992cdfdfac26fd9892e26457eba90bad7f.mp3",
+      "audio_file": "audio/apkg_extracted/matin.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "un",
+      "ipa": "œ̃",
+      "audio_source": "ATTS audio02-e226e1fd5ba18faee1039d1809c74b1d23394619.mp3",
+      "audio_file": "audio/apkg_extracted/un.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "oncle",
+      "ipa": "ɔ̃",
+      "audio_source": "ATTS audio02-929ca4a0d41e074b24271205d21fbd1579eb51f4.mp3",
+      "audio_file": "audio/apkg_extracted/oncle.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "monde",
+      "ipa": "ɔ̃",
+      "audio_source": "ATTS audio02-c65fe5deb6ad908a25e5e356b5df0f6125dc0ec3.mp3",
+      "audio_file": "audio/apkg_extracted/monde.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "tomber",
+      "ipa": "ɔ̃",
+      "audio_source": "ATTS audio02-cbcf66bf30b31654972326943ffe27a9baa48a74.mp3",
+      "audio_file": "audio/apkg_extracted/tomber.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "enfant",
+      "ipa": "ɑ̃",
+      "audio_source": "ATTS audio02-0b4a63c2a26b7054834cf49dba150f552107960e.mp3",
+      "audio_file": "audio/apkg_extracted/enfant.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "ville",
+      "ipa": "ɪ",
+      "audio_source": "ATTS audio02-075849dd67679641a88003c6301eed275894914b.mp3",
+      "audio_file": "audio/apkg_extracted/ville.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "musique",
+      "ipa": "ɪ",
+      "audio_source": "ATTS audio02-2ed5431b129831b5d4266a45398da38e1795bef9.mp3",
+      "audio_file": "audio/apkg_extracted/musique.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "ours",
+      "ipa": "ʊ",
+      "audio_source": "ATTS FrenchAudio (36).mp3",
+      "audio_file": "audio/apkg_extracted/ours.mp3",
+      "model": "French irregular pronunciation"
+    },
+    {
+      "word": "sud",
+      "ipa": "ʏ",
+      "audio_source": "ATTS FrenchAudio (26).mp3",
+      "audio_file": "audio/apkg_extracted/sud.mp3",
+      "model": "French irregular pronunciation"
+    },
+    {
+      "word": "père",
+      "ipa": "p",
+      "audio_source": "ATTS audio02-a4c884ee66f7046e8f7baf0152d0d9b54e982fe1.mp3",
+      "audio_file": "audio/apkg_extracted/pere.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "téléphone",
+      "ipa": "t",
+      "audio_source": "ATTS audio02-993bcb20c8a89b69c56be0f76e26044bd177f41e.mp3",
+      "audio_file": "audio/apkg_extracted/telephone.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "cours",
+      "ipa": "k",
+      "audio_source": "ATTS audio02-aec16039f36629a7fdda70e69cb2b405ff620327.mp3",
+      "audio_file": "audio/apkg_extracted/cours.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "quoi",
+      "ipa": "k",
+      "audio_source": "ATTS audio02-a2cd1da63e8602788ac9811f515d1ab0c3a2139b.mp3",
+      "audio_file": "audio/apkg_extracted/quoi.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "bébé",
+      "ipa": "b",
+      "audio_source": "ATTS audio02-4d079637c2d869178b9c1db535e8359b5548d4fb.mp3",
+      "audio_file": "audio/apkg_extracted/bebe.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "garçon",
+      "ipa": "g",
+      "audio_source": "ATTS audio02-207d3c2c853516bf875a00ba629f679c0a09f6e9.mp3",
+      "audio_file": "audio/apkg_extracted/garcon.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "fille",
+      "ipa": "f",
+      "audio_source": "ATTS audio02-db1777f080035d88b56afc88fc9b85847010ac45.mp3",
+      "audio_file": "audio/apkg_extracted/fille.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "place",
+      "ipa": "s",
+      "audio_source": "ATTS audio02-b6aa77c4550a4a45d04ce9237400134cadd62a2e.mp3",
+      "audio_file": "audio/apkg_extracted/place.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "façon",
+      "ipa": "s",
+      "audio_source": "ATTS audio02-aa9b07a6fdc55234912d8d4053451a4cd5632b0d.mp3",
+      "audio_file": "audio/apkg_extracted/facon.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "semaine",
+      "ipa": "s",
+      "audio_source": "ATTS audio02-cff7d937f5135b56bc238eb0c7b0ed41132b1be6.mp3",
+      "audio_file": "audio/apkg_extracted/semaine.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "ville",
+      "ipa": "v",
+      "audio_source": "ATTS audio02-075849dd67679641a88003c6301eed275894914b.mp3",
+      "audio_file": "audio/apkg_extracted/ville.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "livre",
+      "ipa": "l",
+      "audio_source": "ATTS audio02-d79c92a7f24d7b7e8d1de47caaccaf2e56b4e6e5.mp3",
+      "audio_file": "audio/apkg_extracted/livre.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "elle",
+      "ipa": "l",
+      "audio_source": "ATTS audio02-881518301c1399951065e52ac891079db93a38a0.mp3",
+      "audio_file": "audio/apkg_extracted/elle.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "regarder",
+      "ipa": "R",
+      "audio_source": "ATTS audio02-a7a306db7eada2671341ecda62012c221c3c32fe.mp3",
+      "audio_file": "audio/apkg_extracted/regarder.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "vrai",
+      "ipa": "R",
+      "audio_source": "ATTS audio02-ff9d3ab0ee9f782b61660fb0535426b47e39e0a7.mp3",
+      "audio_file": "audio/apkg_extracted/vrai.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "maman",
+      "ipa": "m",
+      "audio_source": "ATTS audio02-884cd2e17220e371e441fe2729eb59dc3a1be4a5.mp3",
+      "audio_file": "audio/apkg_extracted/maman.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "noir",
+      "ipa": "n",
+      "audio_source": "ATTS audio02-5199f33ba44a439dafe7ee685f06511f60eeccfe.mp3",
+      "audio_file": "audio/apkg_extracted/noir.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "nom",
+      "ipa": "n",
+      "audio_source": "ATTS audio02-3cd2ab8fac307a8deb9b50722c3f90216ff70ec9.mp3",
+      "audio_file": "audio/apkg_extracted/nom.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "diner",
+      "ipa": "n",
+      "audio_source": "ATTS audio02-6fc031b690020a098a31dd4cf5c44b59ef4e4ceb.mp3",
+      "audio_file": "audio/apkg_extracted/diner.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "fille",
+      "ipa": "j",
+      "audio_source": "ATTS audio02-db1777f080035d88b56afc88fc9b85847010ac45.mp3",
+      "audio_file": "audio/apkg_extracted/fille.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "pied",
+      "ipa": "j",
+      "audio_source": "ATTS audio02-1ff8c8fefae19e6aa41a975723a44e30c9b51eda.mp3",
+      "audio_file": "audio/apkg_extracted/pied.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "huile",
+      "ipa": "ɥ",
+      "audio_source": "ATTS lhuile_fr_audio.mp3",
+      "audio_file": "audio/apkg_extracted/huile.mp3",
+      "model": "French aspirated h"
+    },
+    {
+      "word": "lui",
+      "ipa": "ɥ",
+      "audio_source": "ATTS audio02-4a458f0f66f8cc83aa230247d9e37816fe3edd6e.mp3",
+      "audio_file": "audio/apkg_extracted/lui.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    },
+    {
+      "word": "voir",
+      "ipa": "w",
+      "audio_source": "ATTS audio02-50b088477edb7287014aa694d1a9694489a4bc35.mp3",
+      "audio_file": "audio/apkg_extracted/voir.mp3",
+      "model": "5000 French Words 2.0 (F to E)"
+    }
+  ],
+  "unmatched": [
+    "bicyclette",
+    "union",
+    "inutile",
+    "barbu",
+    "ouvert",
+    "cou",
+    "été",
+    "nez",
+    "jeudi",
+    "automne",
+    "chemise",
+    "mètre",
+    "presse",
+    "bête",
+    "œuf",
+    "fleur",
+    "orteil",
+    "olive",
+    "abricot",
+    "patte",
+    "dégât",
+    "gâteau",
+    "pâte",
+    "invitation",
+    "pain",
+    "brun",
+    "mange",
+    "emploi",
+    "ile",
+    "foule",
+    "autoroute",
+    "urgence",
+    "virgule",
+    "souper",
+    "cap",
+    "veste",
+    "pâte",
+    "flocon",
+    "bac",
+    "kiwi",
+    "banane",
+    "comptable",
+    "date",
+    "dentiste",
+    "vendredi",
+    "langue",
+    "français",
+    "pharmacie",
+    "célibataire",
+    "mars",
+    "chat",
+    "cheveu",
+    "vache",
+    "short",
+    "cave",
+    "wagon",
+    "zèbre",
+    "quatorze",
+    "fraise",
+    "dixième",
+    "janvier",
+    "agenda",
+    "neige",
+    "stylo",
+    "ordinateur",
+    "manteau",
+    "pomme",
+    "campagne",
+    "agneau",
+    "camping",
+    "pingpong",
+    "ail",
+    "yogourt",
+    "suie",
+    "oiseau",
+    "ouate",
+    "watt"
+  ]
+}
