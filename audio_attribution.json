@@ -1,0 +1,20 @@
+{
+  "idée": {
+    "file": "Fr-idée.ogg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fr-id%C3%A9e.ogg",
+    "download_url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Fr-id%C3%A9e.ogg",
+    "license": "CC BY 2.0 fr",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/fr/deed.en",
+    "artist": "Vion Nicolas",
+    "attribution_required": true
+  },
+  "livre": {
+    "file": "Fr-un_livre-fr-ouest.ogg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fr-un_livre-fr-ouest.ogg",
+    "download_url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Fr-un_livre-fr-ouest.ogg",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "artist": "No machine-readable author provided. <a href=\"//commons.wikimedia.org/wiki/User:Lab%C3%A9\" title=\"User:Labé\">Labé</a> assumed (based on copyright claims).",
+    "attribution_required": true
+  }
+}

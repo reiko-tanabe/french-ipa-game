@@ -1,0 +1,1001 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jeu de l'API français</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f4f1ea;
+        --panel: #fffdf8;
+        --ink: #1f2430;
+        --muted: #5f6777;
+        --line: #d6cabb;
+        --accent: #ad3f2f;
+        --blue: #234e70;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+        background:
+          radial-gradient(circle at top left, #fff9ee 0, transparent 32%),
+          linear-gradient(180deg, #efe3d0 0, var(--bg) 30%, #efe8dc 100%);
+        color: var(--ink);
+      }
+
+      .container {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 24px 16px 40px;
+      }
+
+      .hero {
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 3.25rem);
+        letter-spacing: 0.04em;
+      }
+
+      .subhead {
+        margin: 10px 0 0;
+        color: var(--muted);
+      }
+
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 18px;
+        box-shadow: 0 16px 40px rgba(95, 76, 49, 0.08);
+      }
+
+      .view[hidden] {
+        display: none;
+      }
+
+      .menu-grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .menu-card,
+      .word-btn,
+      .ipa-btn,
+      .control-btn,
+      .table-ipa-btn,
+      .table-word-btn {
+        appearance: none;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+        color: var(--ink);
+        cursor: pointer;
+        font: inherit;
+      }
+
+      .menu-card {
+        padding: 24px 20px;
+        text-align: left;
+      }
+
+      .menu-card h2 {
+        margin: 0 0 10px;
+        font-size: 1.5rem;
+      }
+
+      .menu-card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+
+      .section-title {
+        margin: 0;
+        font-size: 1.6rem;
+      }
+
+      .status {
+        min-height: 24px;
+        margin: 12px 0 0;
+        font-weight: 700;
+      }
+
+      .status.error {
+        color: #b00020;
+      }
+
+      .status.ok {
+        color: #1d6f42;
+      }
+
+      .word-btn {
+        width: 100%;
+        margin-top: 14px;
+        padding: 18px 16px;
+        font-size: clamp(2rem, 6vw, 3rem);
+        background: linear-gradient(180deg, #fff 0, #fcf3eb 100%);
+      }
+
+      .word-btn strong,
+      .table-word-btn strong {
+        font-weight: 800;
+        color: var(--blue);
+      }
+
+      .ipa-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .ipa-btn {
+        padding: 14px 10px;
+        font-size: 1.5rem;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .learning-toolbar {
+        display: grid;
+        gap: 12px;
+        margin: 14px 0 6px;
+      }
+
+      .learning-toolbar label {
+        display: block;
+        font-size: 0.92rem;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+
+      .learning-toolbar select {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: #fff;
+        font: inherit;
+      }
+
+      .learning-note {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .stats-grid {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        margin-top: 8px;
+      }
+
+      .stat-card {
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+      }
+
+      .stat-card h3 {
+        margin: 0 0 8px;
+        font-size: 0.98rem;
+      }
+
+      .stat-card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .control-btn {
+        padding: 11px 14px;
+        font-size: 0.95rem;
+      }
+
+      .table-grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .table-section h3 {
+        margin: 0 0 10px;
+        font-size: 1.35rem;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+      }
+
+      th,
+      td {
+        border: 1px solid var(--line);
+        padding: 10px 12px;
+        vertical-align: top;
+      }
+
+      th {
+        width: 110px;
+        text-align: left;
+        font-weight: 700;
+      }
+
+      .table-ipa-btn {
+        width: 100%;
+        padding: 8px 10px;
+        font-size: 1.25rem;
+        background: #f8f5ef;
+        cursor: default;
+      }
+
+      .word-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .table-word-btn {
+        padding: 8px 10px;
+      }
+
+      .table-note {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 700px) {
+        .topbar {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        th {
+          width: 86px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <h1>Jeu de l'API français</h1>
+        <p class="subhead">Choisissez un mode, écoutez les mots et entraînez-vous à reconnaître les sons.</p>
+      </header>
+
+      <section id="homeView" class="view panel">
+        <div class="menu-grid">
+          <button id="openTableMode" class="menu-card" type="button">
+            <h2>Mode tableau</h2>
+            <p>Consultez le tableau des sons, puis cliquez sur un symbole API ou sur un mot pour écouter la prononciation.</p>
+          </button>
+          <button id="openGameMode" class="menu-card" type="button">
+            <h2>Mode jeu</h2>
+            <p>Écoutez un mot et choisissez le bon symbole API parmi quatre propositions.</p>
+          </button>
+        </div>
+      </section>
+
+      <section id="tableView" class="view panel" hidden>
+        <div class="topbar">
+          <h2 class="section-title">Tableau phonétique</h2>
+          <button id="backFromTable" class="control-btn" type="button">Retour à l'accueil</button>
+        </div>
+        <div id="tableStatus" class="status"></div>
+        <div id="tableContainer" class="table-grid"></div>
+      </section>
+
+      <section id="gameView" class="view panel" hidden>
+        <div class="topbar">
+          <h2 class="section-title">Mode jeu</h2>
+          <button id="backFromGame" class="control-btn" type="button">Retour à l'accueil</button>
+        </div>
+        <p class="subhead">Cliquez sur le mot pour écouter l'audio, puis choisissez le bon symbole API.</p>
+        <div class="learning-toolbar">
+          <div>
+            <label for="learningSetSelect">Ensemble d'étude</label>
+            <select id="learningSetSelect">
+              <option value="all">Tous les sons</option>
+              <option value="voyelles_orales">Voyelles orales</option>
+              <option value="voyelles_nasales">Voyelles nasales</option>
+              <option value="voyelles_relachees">Voyelles relâchées</option>
+              <option value="semi_voyelles">Semi-voyelles</option>
+              <option value="consonnes">Consonnes</option>
+            </select>
+          </div>
+          <div class="learning-note">
+            Révision prioritaire, suivi des sons difficiles, comparaison des sons proches et sortie des sons maîtrisés sont activés.
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <h3>Révisions en attente</h3>
+              <p id="reviewQueueInfo">0</p>
+            </div>
+            <div class="stat-card">
+              <h3>Sons difficiles</h3>
+              <p id="weakSoundsInfo">-</p>
+            </div>
+            <div class="stat-card">
+              <h3>Sons maîtrisés</h3>
+              <p id="masteredSoundsInfo">0</p>
+            </div>
+          </div>
+        </div>
+        <button id="wordButton" class="word-btn" type="button">Chargement...</button>
+        <div id="gameStatus" class="status"></div>
+        <div id="ipaGrid" class="ipa-grid"></div>
+        <div class="controls">
+          <button id="replayButton" class="control-btn" type="button">Réécouter</button>
+          <button id="nextButton" class="control-btn" type="button">Mot suivant</button>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      (() => {
+        const IPA_OPTION_GROUPS = [
+          ["e", "ɛ", "e:", "ə"],
+          ["ø", "œ", "œ̃"],
+          ["o", "ɔ"],
+          ["i", "y", "u"],
+          ["j", "ɥ", "w"],
+          ["ɛ̃", "œ̃", "ɔ̃", "ɑ̃"],
+          ["p", "b"],
+          ["t", "d"],
+          ["k", "g"],
+          ["f", "v"],
+          ["s", "z"],
+          ["ʃ", "ʒ"],
+          ["l", "R"],
+          ["m", "n", "ɲ", "ŋ"],
+        ];
+
+        const TABLE_SECTIONS = [
+          { title: "Les voyelles orales", ipas: ["i", "y", "u", "e", "ø", "o", "ə", "ɛ", "e:", "œ", "ɔ", "a", "ɑ"] },
+          { title: "Les voyelles nasales", ipas: ["ɛ̃", "œ̃", "ɔ̃", "ɑ̃"] },
+          { title: "Les voyelles relâchées", ipas: ["ɪ", "ʊ", "ʏ"] },
+          { title: "Les semi-consonnes ou semi-voyelles", ipas: ["j", "ɥ", "w"] },
+          { title: "Les consonnes", ipas: ["p", "b", "t", "d", "k", "g", "f", "v", "s", "z", "ʃ", "ʒ", "l", "R", "m", "n", "ɲ", "ŋ"] },
+        ];
+
+        const homeView = document.getElementById("homeView");
+        const tableView = document.getElementById("tableView");
+        const gameView = document.getElementById("gameView");
+        const openTableMode = document.getElementById("openTableMode");
+        const openGameMode = document.getElementById("openGameMode");
+        const backFromTable = document.getElementById("backFromTable");
+        const backFromGame = document.getElementById("backFromGame");
+        const tableStatus = document.getElementById("tableStatus");
+        const tableContainer = document.getElementById("tableContainer");
+        const wordButton = document.getElementById("wordButton");
+        const gameStatus = document.getElementById("gameStatus");
+        const ipaGrid = document.getElementById("ipaGrid");
+        const replayButton = document.getElementById("replayButton");
+        const nextButton = document.getElementById("nextButton");
+        const learningSetSelect = document.getElementById("learningSetSelect");
+        const reviewQueueInfo = document.getElementById("reviewQueueInfo");
+        const weakSoundsInfo = document.getElementById("weakSoundsInfo");
+        const masteredSoundsInfo = document.getElementById("masteredSoundsInfo");
+
+        let records = [];
+        let currentRecord = null;
+        let frVoice = null;
+        let activeAudio = null;
+        let reviewQueue = [];
+        let currentLearningSet = "all";
+        const ipaStats = {};
+        const STREAK_TO_MASTER = 2;
+        const REVIEW_DELAY = 2;
+        const LOCAL_STORAGE_KEY = "french-ipa-game-stats";
+
+        const LEARNING_SETS = {
+          all: null,
+          voyelles_orales: ["i", "y", "u", "e", "ø", "o", "ə", "ɛ", "e:", "œ", "ɔ", "a", "ɑ"],
+          voyelles_nasales: ["ɛ̃", "œ̃", "ɔ̃", "ɑ̃"],
+          voyelles_relachees: ["ɪ", "ʊ", "ʏ"],
+          semi_voyelles: ["j", "ɥ", "w"],
+          consonnes: ["p", "b", "t", "d", "k", "g", "f", "v", "s", "z", "ʃ", "ʒ", "l", "R", "m", "n", "ɲ", "ŋ"],
+        };
+
+        function setStatus(element, text, tone = "") {
+          element.textContent = text;
+          element.className = "status";
+          if (tone) {
+            element.classList.add(tone);
+          }
+        }
+
+        function showView(viewName) {
+          homeView.hidden = viewName !== "home";
+          tableView.hidden = viewName !== "table";
+          gameView.hidden = viewName !== "game";
+        }
+
+        function setGameInteractiveEnabled(enabled) {
+          wordButton.disabled = !enabled;
+          replayButton.disabled = !enabled;
+          nextButton.disabled = !enabled;
+          learningSetSelect.disabled = !enabled;
+        }
+
+        function shuffle(items) {
+          const arr = [...items];
+          for (let i = arr.length - 1; i > 0; i -= 1) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+          }
+          return arr;
+        }
+
+        function getAudioMeta(record) {
+          return record && record.audio && typeof record.audio === "object"
+            ? record.audio
+            : null;
+        }
+
+        function loadStoredStats() {
+          try {
+            const raw = localStorage.getItem(LOCAL_STORAGE_KEY);
+            if (!raw) {
+              return;
+            }
+            const parsed = JSON.parse(raw);
+            if (parsed && typeof parsed === "object") {
+              Object.assign(ipaStats, parsed);
+            }
+          } catch (_) {
+          }
+        }
+
+        function saveStoredStats() {
+          try {
+            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(ipaStats));
+          } catch (_) {
+          }
+        }
+
+        function ensureIpaStat(ipa) {
+          if (!ipaStats[ipa]) {
+            ipaStats[ipa] = {
+              correct: 0,
+              wrong: 0,
+              streak: 0,
+              mastered: false,
+            };
+          }
+          return ipaStats[ipa];
+        }
+
+        function getEligibleRecords() {
+          const targetSet = LEARNING_SETS[currentLearningSet];
+          if (!targetSet) {
+            return records;
+          }
+          return records.filter((record) => targetSet.includes(record.ipa));
+        }
+
+        function getMasteredIpas(recordsSubset) {
+          return [...new Set(recordsSubset.map((record) => record.ipa))].filter(
+            (ipa) => ensureIpaStat(ipa).mastered
+          );
+        }
+
+        function updateLearningDashboard() {
+          const eligibleRecords = getEligibleRecords();
+          const eligibleIpas = [...new Set(eligibleRecords.map((record) => record.ipa))];
+          const queueCount = reviewQueue.filter((item) =>
+            eligibleRecords.some((record) => record._id === item.recordId)
+          ).length;
+          reviewQueueInfo.textContent = String(queueCount);
+
+          const weakIpas = eligibleIpas
+            .map((ipa) => {
+              const stat = ensureIpaStat(ipa);
+              return {
+                ipa,
+                score: stat.wrong * 2 - stat.correct,
+              };
+            })
+            .filter((item) => item.score > 0)
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 3)
+            .map((item) => item.ipa);
+          weakSoundsInfo.textContent = weakIpas.length > 0 ? weakIpas.join(", ") : "-";
+
+          masteredSoundsInfo.textContent = String(getMasteredIpas(eligibleRecords).length);
+        }
+
+        function escapeHtml(text) {
+          return String(text)
+            .replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;")
+            .replaceAll("'", "&#39;");
+        }
+
+        function renderWordLabel(word, bold) {
+          if (!bold || !word || !String(word).includes(String(bold))) {
+            return escapeHtml(word || "");
+          }
+
+          const sourceWord = String(word);
+          const sourceBold = String(bold);
+          const index = sourceWord.indexOf(sourceBold);
+          const before = escapeHtml(sourceWord.slice(0, index));
+          const middle = escapeHtml(sourceWord.slice(index, index + sourceBold.length));
+          const after = escapeHtml(sourceWord.slice(index + sourceBold.length));
+          return `${before}<strong>${middle}</strong>${after}`;
+        }
+
+        function normalizeVoiceLang(lang) {
+          return String(lang || "").replace("_", "-").toLowerCase();
+        }
+
+        function pickFrFrVoice(voices) {
+          return voices.find((voice) => {
+            const lang = normalizeVoiceLang(voice.lang);
+            return lang === "fr-fr" || lang.startsWith("fr-fr-");
+          });
+        }
+
+        function ensureFrFrVoiceAvailable() {
+          if (!("speechSynthesis" in window)) {
+            return Promise.reject(new Error("L'API vocale n'est pas disponible."));
+          }
+
+          return new Promise((resolve, reject) => {
+            const synth = window.speechSynthesis;
+
+            const finalize = () => {
+              const voice = pickFrFrVoice(synth.getVoices());
+              if (voice) {
+                frVoice = voice;
+                resolve();
+              } else {
+                reject(new Error("Aucune voix fr-FR n'a été trouvée dans le navigateur."));
+              }
+            };
+
+            const initial = pickFrFrVoice(synth.getVoices());
+            if (initial) {
+              frVoice = initial;
+              resolve();
+              return;
+            }
+
+            const onVoicesChanged = () => {
+              synth.removeEventListener("voiceschanged", onVoicesChanged);
+              finalize();
+            };
+
+            synth.addEventListener("voiceschanged", onVoicesChanged);
+            setTimeout(() => {
+              synth.removeEventListener("voiceschanged", onVoicesChanged);
+              finalize();
+            }, 1500);
+          });
+        }
+
+        function stopActiveAudio() {
+          if (activeAudio) {
+            activeAudio.pause();
+            activeAudio.currentTime = 0;
+          }
+        }
+
+        function playRecordAudio(record, statusElement) {
+          const audioMeta = getAudioMeta(record);
+          if (audioMeta && typeof audioMeta.file === "string" && audioMeta.file) {
+            stopActiveAudio();
+            activeAudio = new Audio(audioMeta.file);
+            if (
+              typeof audioMeta.start === "number" &&
+              typeof audioMeta.end === "number" &&
+              audioMeta.end > audioMeta.start
+            ) {
+              activeAudio.currentTime = audioMeta.start;
+              const stopListener = () => {
+                if (activeAudio.currentTime >= audioMeta.end) {
+                  activeAudio.pause();
+                  activeAudio.removeEventListener("timeupdate", stopListener);
+                }
+              };
+              activeAudio.addEventListener("timeupdate", stopListener);
+            }
+            activeAudio.play().catch(() => {
+              setStatus(statusElement, "Impossible de lire le fichier audio.", "error");
+            });
+            return;
+          }
+
+          if (!("speechSynthesis" in window) || !frVoice) {
+            setStatus(statusElement, "Aucune voix fr-FR n'est disponible.", "error");
+            return;
+          }
+
+          window.speechSynthesis.cancel();
+          const utterance = new SpeechSynthesisUtterance(record.word);
+          utterance.lang = "fr-FR";
+          utterance.voice = frVoice;
+          window.speechSynthesis.speak(utterance);
+        }
+
+        function buildOptionsForCurrent(record) {
+          const allIpas = [...new Set(records.map((r) => r.ipa))];
+          let optionPool =
+            IPA_OPTION_GROUPS.find((group) => group.includes(record.ipa)) || [record.ipa];
+
+          if (optionPool.length < 4) {
+            const supplements = allIpas.filter((ipa) => !optionPool.includes(ipa));
+            optionPool = [...optionPool, ...supplements];
+          }
+
+          const wrongOptions = shuffle(optionPool.filter((ipa) => ipa !== record.ipa)).slice(0, 3);
+          if (wrongOptions.length < 3) {
+            throw new Error(`Impossible de créer trois mauvais choix pour '${record.ipa}'.`);
+          }
+          return shuffle([record.ipa, ...wrongOptions]);
+        }
+
+        function enqueueReview(recordId) {
+          const existing = reviewQueue.find((item) => item.recordId === recordId);
+          if (existing) {
+            existing.due = Math.min(existing.due, REVIEW_DELAY);
+            return;
+          }
+          reviewQueue.push({ recordId, due: REVIEW_DELAY });
+        }
+
+        function advanceReviewQueue() {
+          reviewQueue = reviewQueue.map((item) => ({
+            ...item,
+            due: Math.max(0, item.due - 1),
+          }));
+        }
+
+        function chooseWeightedRecord(candidates) {
+          const weighted = candidates.map((record) => {
+            const stat = ensureIpaStat(record.ipa);
+            let weight = 1 + stat.wrong * 2 + Math.max(0, stat.wrong - stat.correct);
+            if (stat.mastered) {
+              weight *= 0.15;
+            }
+            return { record, weight: Math.max(weight, 0.1) };
+          });
+          const total = weighted.reduce((sum, item) => sum + item.weight, 0);
+          let threshold = Math.random() * total;
+          for (const item of weighted) {
+            threshold -= item.weight;
+            if (threshold <= 0) {
+              return item.record;
+            }
+          }
+          return weighted[weighted.length - 1].record;
+        }
+
+        function chooseNextRecord() {
+          const eligibleRecords = getEligibleRecords();
+          if (eligibleRecords.length === 0) {
+            throw new Error("Aucun mot n'est disponible dans cet ensemble d'étude.");
+          }
+
+          advanceReviewQueue();
+          const eligibleIds = new Set(eligibleRecords.map((record) => record._id));
+          const dueReview = reviewQueue.find(
+            (item) => item.due <= 0 && eligibleIds.has(item.recordId)
+          );
+          if (dueReview) {
+            reviewQueue = reviewQueue.filter((item) => item.recordId !== dueReview.recordId);
+            return eligibleRecords.find((record) => record._id === dueReview.recordId);
+          }
+
+          const activeCandidates = eligibleRecords.filter(
+            (record) => !ensureIpaStat(record.ipa).mastered
+          );
+          const candidatePool =
+            activeCandidates.length > 0 ? activeCandidates : eligibleRecords;
+
+          if (activeCandidates.length === 0) {
+            eligibleRecords.forEach((record) => {
+              const stat = ensureIpaStat(record.ipa);
+              stat.mastered = false;
+              stat.streak = 0;
+            });
+            saveStoredStats();
+            updateLearningDashboard();
+            return chooseWeightedRecord(eligibleRecords);
+          }
+
+          return chooseWeightedRecord(candidatePool);
+        }
+
+        function handleIpaSelection(selectedIpa) {
+          if (!currentRecord) {
+            return;
+          }
+          const stat = ensureIpaStat(currentRecord.ipa);
+          if (selectedIpa === currentRecord.ipa) {
+            stat.correct += 1;
+            stat.streak += 1;
+            let message = "Bonne réponse.";
+            if (stat.streak >= STREAK_TO_MASTER) {
+              stat.mastered = true;
+              message = `Bonne réponse.`;
+            }
+            setStatus(gameStatus, message, "ok");
+          } else {
+            stat.wrong += 1;
+            stat.streak = 0;
+            stat.mastered = false;
+            enqueueReview(currentRecord._id);
+            setStatus(
+              gameStatus,
+              `Mauvaise réponse.`,
+              "error"
+            );
+          }
+          saveStoredStats();
+          updateLearningDashboard();
+        }
+
+        function renderGameQuestion() {
+          try {
+            currentRecord = chooseNextRecord();
+            const options = buildOptionsForCurrent(currentRecord);
+            wordButton.innerHTML = renderWordLabel(currentRecord.word, currentRecord.bold);
+            setStatus(gameStatus, "");
+            ipaGrid.innerHTML = "";
+            updateLearningDashboard();
+
+            options.forEach((ipa) => {
+              const btn = document.createElement("button");
+              btn.type = "button";
+              btn.className = "ipa-btn";
+              btn.textContent = ipa;
+              btn.addEventListener("click", () => handleIpaSelection(ipa));
+              ipaGrid.appendChild(btn);
+            });
+          } catch (err) {
+            currentRecord = null;
+            ipaGrid.innerHTML = "";
+            wordButton.textContent = "Impossible d'afficher une question";
+            setStatus(gameStatus, String(err.message || err), "error");
+          }
+        }
+
+        function buildTableRowsMap() {
+          const map = new Map();
+          records.forEach((record) => {
+            if (!map.has(record.ipa)) {
+              map.set(record.ipa, []);
+            }
+            map.get(record.ipa).push(record);
+          });
+          return map;
+        }
+
+        function renderTable() {
+          const rowsByIpa = buildTableRowsMap();
+          const renderedIpas = new Set();
+          tableContainer.innerHTML = "";
+
+          TABLE_SECTIONS.forEach((section) => {
+            const sectionRows = section.ipas.filter((ipa) => rowsByIpa.has(ipa));
+            if (sectionRows.length === 0) {
+              return;
+            }
+
+            const wrapper = document.createElement("section");
+            wrapper.className = "table-section";
+            const title = document.createElement("h3");
+            title.textContent = section.title;
+            wrapper.appendChild(title);
+
+            const table = document.createElement("table");
+            const tbody = document.createElement("tbody");
+
+            sectionRows.forEach((ipa) => {
+              renderedIpas.add(ipa);
+              const rowRecords = rowsByIpa.get(ipa);
+              const tr = document.createElement("tr");
+              const th = document.createElement("th");
+              const ipaLabel = document.createElement("div");
+              ipaLabel.className = "table-ipa-btn";
+              ipaLabel.textContent = `[${ipa}]`;
+              th.appendChild(ipaLabel);
+
+              const td = document.createElement("td");
+              const wordList = document.createElement("div");
+              wordList.className = "word-list";
+              rowRecords.forEach((record) => {
+                const wordButton = document.createElement("button");
+                wordButton.type = "button";
+                wordButton.className = "table-word-btn";
+                wordButton.innerHTML = renderWordLabel(record.word, record.bold);
+                wordButton.addEventListener("click", () => {
+                  playRecordAudio(record, tableStatus);
+                });
+                wordList.appendChild(wordButton);
+              });
+              td.appendChild(wordList);
+              tr.appendChild(th);
+              tr.appendChild(td);
+              tbody.appendChild(tr);
+            });
+
+            table.appendChild(tbody);
+            wrapper.appendChild(table);
+            tableContainer.appendChild(wrapper);
+          });
+
+          const remaining = [...rowsByIpa.keys()].filter((ipa) => !renderedIpas.has(ipa));
+          if (remaining.length > 0) {
+            const wrapper = document.createElement("section");
+            wrapper.className = "table-section";
+            const title = document.createElement("h3");
+            title.textContent = "Autres symboles";
+            wrapper.appendChild(title);
+
+            const table = document.createElement("table");
+            const tbody = document.createElement("tbody");
+            remaining.forEach((ipa) => {
+              const rowRecords = rowsByIpa.get(ipa);
+              const tr = document.createElement("tr");
+              const th = document.createElement("th");
+              const ipaLabel = document.createElement("div");
+              ipaLabel.className = "table-ipa-btn";
+              ipaLabel.textContent = `[${ipa}]`;
+              th.appendChild(ipaLabel);
+
+              const td = document.createElement("td");
+              const wordList = document.createElement("div");
+              wordList.className = "word-list";
+              rowRecords.forEach((record) => {
+                const wordButton = document.createElement("button");
+                wordButton.type = "button";
+                wordButton.className = "table-word-btn";
+                wordButton.innerHTML = renderWordLabel(record.word, record.bold);
+                wordButton.addEventListener("click", () => {
+                  playRecordAudio(record, tableStatus);
+                });
+                wordList.appendChild(wordButton);
+              });
+              td.appendChild(wordList);
+              tr.appendChild(th);
+              tr.appendChild(td);
+              tbody.appendChild(tr);
+            });
+            table.appendChild(tbody);
+            wrapper.appendChild(table);
+            tableContainer.appendChild(wrapper);
+          }
+        }
+
+        async function loadData() {
+          const response = await fetch("./data/ipa_words.json");
+          if (!response.ok) {
+            throw new Error("Impossible de charger ipa_words.json.");
+          }
+          const json = await response.json();
+          if (!Array.isArray(json) || json.length === 0) {
+            throw new Error("Le fichier ipa_words.json est vide.");
+          }
+
+          const normalized = Array.isArray(json[0]) ? json.flat() : json;
+          const filtered = normalized.filter(
+            (item) =>
+              item &&
+              typeof item.word === "string" &&
+              item.word !== "" &&
+              typeof item.ipa === "string" &&
+              item.ipa !== ""
+          );
+
+          if (filtered.length === 0) {
+            throw new Error("Aucune donnée valide n'a été trouvée.");
+          }
+
+          records = filtered.map((record, index) => ({
+            ...record,
+            _id: index,
+          }));
+        }
+
+        openTableMode.addEventListener("click", () => {
+          showView("table");
+        });
+
+        openGameMode.addEventListener("click", () => {
+          showView("game");
+        });
+
+        backFromTable.addEventListener("click", () => {
+          showView("home");
+        });
+
+        backFromGame.addEventListener("click", () => {
+          showView("home");
+        });
+
+        wordButton.addEventListener("click", () => {
+          if (currentRecord) {
+            playRecordAudio(currentRecord, gameStatus);
+          }
+        });
+
+        replayButton.addEventListener("click", () => {
+          if (currentRecord) {
+            playRecordAudio(currentRecord, gameStatus);
+          }
+        });
+
+        nextButton.addEventListener("click", () => {
+          if (records.length > 0) {
+            renderGameQuestion();
+          }
+        });
+
+        learningSetSelect.addEventListener("change", () => {
+          currentLearningSet = learningSetSelect.value;
+          reviewQueue = reviewQueue.filter((item) =>
+            getEligibleRecords().some((record) => record._id === item.recordId)
+          );
+          updateLearningDashboard();
+          renderGameQuestion();
+        });
+
+        setGameInteractiveEnabled(false);
+        showView("home");
+        loadStoredStats();
+
+        (async () => {
+          try {
+            await loadData();
+            renderTable();
+            renderGameQuestion();
+            setGameInteractiveEnabled(true);
+            updateLearningDashboard();
+            try {
+              await ensureFrFrVoiceAvailable();
+            } catch (voiceError) {
+              setStatus(gameStatus, String(voiceError.message || voiceError), "error");
+              setStatus(tableStatus, String(voiceError.message || voiceError), "error");
+            }
+          } catch (err) {
+            const message = String(err.message || err);
+            setGameInteractiveEnabled(false);
+            wordButton.textContent = "Chargement impossible";
+            ipaGrid.innerHTML = "";
+            tableContainer.innerHTML = "";
+            setStatus(gameStatus, message, "error");
+            setStatus(tableStatus, message, "error");
+          }
+        })();
+      })();
+    </script>
+  </body>
+</html>
