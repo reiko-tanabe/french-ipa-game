@@ -354,6 +354,66 @@
           width: 86px;
         }
       }
+
+      @media (max-width: 560px) {
+        .container {
+          padding: 14px 10px 24px;
+        }
+
+        .panel {
+          padding: 12px;
+        }
+
+        .section-title {
+          font-size: 1.35rem;
+        }
+
+        #gameView .subhead {
+          font-size: 0.92rem;
+        }
+
+        .learning-toolbar {
+          gap: 8px;
+          margin-top: 10px;
+        }
+
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .word-btn {
+          padding: 14px 12px;
+          font-size: clamp(1.65rem, 9vw, 2.35rem);
+        }
+
+        .ipa-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 8px;
+        }
+
+        .ipa-btn {
+          min-height: 56px;
+          padding: 10px 8px;
+          font-size: 1.35rem;
+        }
+
+        .controls {
+          flex-direction: column;
+        }
+
+        .controls .control-btn {
+          width: 100%;
+        }
+
+        .game-feedback {
+          align-items: flex-start;
+          gap: 10px;
+        }
+
+        .feedback-image {
+          width: 72px;
+        }
+      }
     </style>
   </head>
   <body>
