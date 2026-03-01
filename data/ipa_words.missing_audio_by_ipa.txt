@@ -1,0 +1,51 @@
+[a]
+- abricot
+
+[j]
+- yogourt
+
+[k]
+- flocon
+- bac
+- kiwi
+
+[p]
+- souper
+
+[v]
+- wagon
+
+[w]
+- ouate
+- watt
+
+[y]
+- barbu
+
+[z]
+- zèbre
+- dixième
+
+[ŋ]
+- ping-pong
+
+[ɑ]
+- dégât
+
+[ɑ̃]
+- mange
+
+[ɔ]
+- olive
+
+[ɥ]
+- suie
+
+[ʃ]
+- short
+
+[ʏ]
+- virgule
+
+[ʒ]
+- agenda

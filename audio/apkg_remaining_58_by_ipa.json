@@ -253,7 +253,7 @@
         "model": "5000 French Words 2.0 (F to E)"
       },
       {
-        "word": "pingpong",
+        "word": "ping-pong",
         "candidate": "i",
         "candidate_source": "word with declinations",
         "model": "5000 French Words 2.0 (F to E)"
@@ -363,7 +363,7 @@
     ],
     "ɪ": [
       {
-        "word": "ile",
+        "word": "île",
         "candidate": "i",
         "candidate_source": "word with declinations",
         "model": "5000 French Words 2.0 (F to E)"

@@ -474,13 +474,13 @@
       "model": "5000 French Words 2.0 (F to E)"
     },
     {
-      "word": "diner",
+      "word": "dîner",
       "ipa": "n",
       "match_type": "exact",
-      "candidate": "diner",
+      "candidate": "dîner",
       "candidate_source": "word",
       "audio_source": "ATTS audio02-6fc031b690020a098a31dd4cf5c44b59ef4e4ceb.mp3",
-      "audio_file": "audio/apkg_extracted/diner.mp3",
+      "audio_file": "audio/apkg_extracted/dîner.mp3",
       "model": "5000 French Words 2.0 (F to E)"
     },
     {
@@ -671,7 +671,7 @@
       "reason": "partial_match_requires_review"
     },
     {
-      "word": "ile",
+      "word": "île",
       "ipa": "ɪ",
       "reason": "partial_match_requires_review"
     },
@@ -880,7 +880,7 @@
       "reason": "partial_match_requires_review"
     },
     {
-      "word": "pingpong",
+      "word": "ping-pong",
       "ipa": "ŋ",
       "reason": "partial_match_requires_review"
     },
@@ -1995,7 +1995,7 @@
       ]
     },
     {
-      "word": "ile",
+      "word": "île",
       "ipa": "ɪ",
       "match_type": "partial",
       "candidate": "le",
@@ -3681,7 +3681,7 @@
       ]
     },
     {
-      "word": "pingpong",
+      "word": "ping-pong",
       "ipa": "ŋ",
       "match_type": "partial",
       "candidate": "on",

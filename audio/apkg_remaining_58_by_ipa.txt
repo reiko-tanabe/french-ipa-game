@@ -76,7 +76,7 @@ Count: 58
 
 [ŋ]
 - camping  (candidate: i | source: word with declinations | model: 5000 French Words 2.0 (F to E))
-- pingpong  (candidate: i | source: word with declinations | model: 5000 French Words 2.0 (F to E))
+- ping-pong  (candidate: i | source: word with declinations | model: 5000 French Words 2.0 (F to E))
 
 [œ]
 - fleur  (candidate: le | source: word | model: 5000 French Words 2.0 (F to E))
