@@ -15,10 +15,6 @@ The app is currently implemented in a single file:
 
 Primary dataset currently used by the app:
 
-- `data/ipa_words.apkg_audio.updated.json`
-
-Fallback source dataset:
-
 - `data/ipa_words.json`
 
 ## Current App Structure
@@ -110,7 +106,6 @@ Choice generation:
 
 - `index.html`
 - `data/ipa_words.json`
-- `data/ipa_words.apkg_audio.updated.json`
 - `audio_attribution.json`
 - `extract_apkg_audio.py`
 - `apply_apkg_audio_matches.py`

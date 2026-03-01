@@ -7,13 +7,13 @@
     <style>
       :root {
         color-scheme: light;
-        --bg: #f4f1ea;
-        --panel: #fffdf8;
+        --bg: #f7f3ec;
+        --panel: #fffdfa;
         --ink: #1f2430;
         --muted: #5f6777;
         --line: #d6cabb;
         --accent: #ad3f2f;
-        --blue: #234e70;
+        --blue: #8f2f24;
       }
 
       * {
@@ -23,20 +23,18 @@
       body {
         margin: 0;
         font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
-        background:
-          radial-gradient(circle at top left, #fff9ee 0, transparent 32%),
-          linear-gradient(180deg, #efe3d0 0, var(--bg) 30%, #efe8dc 100%);
+        background: var(--bg);
         color: var(--ink);
       }
 
       .container {
-        max-width: 1080px;
+        max-width: 960px;
         margin: 0 auto;
-        padding: 24px 16px 40px;
+        padding: 20px 16px 36px;
       }
 
       .hero {
-        margin-bottom: 18px;
+        margin-bottom: 16px;
       }
 
       h1 {
@@ -46,16 +44,15 @@
       }
 
       .subhead {
-        margin: 10px 0 0;
+        margin: 8px 0 0;
         color: var(--muted);
       }
 
       .panel {
         background: var(--panel);
         border: 1px solid var(--line);
-        border-radius: 18px;
-        padding: 18px;
-        box-shadow: 0 16px 40px rgba(95, 76, 49, 0.08);
+        border-radius: 14px;
+        padding: 16px;
       }
 
       .view[hidden] {
@@ -64,7 +61,7 @@
 
       .menu-grid {
         display: grid;
-        gap: 16px;
+        gap: 12px;
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       }
 
@@ -76,7 +73,7 @@
       .table-word-btn {
         appearance: none;
         border: 1px solid var(--line);
-        border-radius: 12px;
+        border-radius: 10px;
         background: #fff;
         color: var(--ink);
         cursor: pointer;
@@ -84,7 +81,7 @@
       }
 
       .menu-card {
-        padding: 24px 20px;
+        padding: 20px 18px;
         text-align: left;
       }
 
@@ -103,7 +100,7 @@
         justify-content: space-between;
         align-items: center;
         gap: 12px;
-        margin-bottom: 14px;
+        margin-bottom: 12px;
       }
 
       .section-title {
@@ -129,7 +126,7 @@
         display: flex;
         align-items: center;
         gap: 14px;
-        margin-top: 12px;
+        margin-top: 10px;
       }
 
       .game-feedback[hidden] {
@@ -163,10 +160,10 @@
 
       .word-btn {
         width: 100%;
-        margin-top: 14px;
-        padding: 18px 16px;
+        margin-top: 12px;
+        padding: 16px 14px;
         font-size: clamp(2rem, 6vw, 3rem);
-        background: linear-gradient(180deg, #fff 0, #fcf3eb 100%);
+        background: #fff;
       }
 
       .word-btn strong,
@@ -178,12 +175,12 @@
       .ipa-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-        gap: 10px;
-        margin-top: 16px;
+        gap: 8px;
+        margin-top: 14px;
       }
 
       .ipa-btn {
-        padding: 14px 10px;
+        padding: 12px 10px;
         font-size: 1.5rem;
         font-family: "Times New Roman", "Noto Serif", "Georgia", serif;
         line-height: 1.3;
@@ -192,14 +189,14 @@
       .controls {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 16px;
+        gap: 8px;
+        margin-top: 14px;
       }
 
       .learning-toolbar {
         display: grid;
-        gap: 12px;
-        margin: 14px 0 6px;
+        gap: 10px;
+        margin: 12px 0 4px;
       }
 
       .learning-toolbar label {
@@ -225,16 +222,16 @@
 
       .stats-grid {
         display: grid;
-        gap: 10px;
+        gap: 8px;
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        margin-top: 8px;
+        margin-top: 4px;
       }
 
       .stat-card {
-        padding: 12px;
+        padding: 10px 12px;
         border: 1px solid var(--line);
-        border-radius: 12px;
-        background: #fff;
+        border-radius: 10px;
+        background: #fffefb;
       }
 
       .stat-card h3 {
@@ -248,13 +245,13 @@
       }
 
       .control-btn {
-        padding: 11px 14px;
+        padding: 10px 14px;
         font-size: 0.95rem;
       }
 
       .table-grid {
         display: grid;
-        gap: 18px;
+        gap: 14px;
       }
 
       .table-section h3 {
@@ -271,7 +268,7 @@
       th,
       td {
         border: 1px solid var(--line);
-        padding: 10px 12px;
+        padding: 8px 10px;
         vertical-align: top;
       }
 
@@ -283,7 +280,7 @@
 
       .table-ipa-btn {
         width: 100%;
-        padding: 8px 10px;
+        padding: 6px 8px;
         font-size: 1.25rem;
         background: #f8f5ef;
         cursor: default;
@@ -294,11 +291,11 @@
       .word-list {
         display: flex;
         flex-wrap: wrap;
-        gap: 8px;
+        gap: 6px;
       }
 
       .table-word-btn {
-        padding: 8px 10px;
+        padding: 6px 10px;
       }
 
       .table-note {
@@ -308,7 +305,7 @@
       }
 
       .attribution-panel {
-        margin-top: 18px;
+        margin-top: 14px;
       }
 
       .attribution-panel summary {
@@ -370,12 +367,15 @@
         <div class="menu-grid">
           <button id="openTableMode" class="menu-card" type="button">
             <h2>Mode tableau</h2>
-            <p>Consultez le tableau des sons, puis cliquez sur un symbole API ou sur un mot pour écouter la prononciation.</p>
+            <p>Consultez les sons et écoutez les mots.</p>
           </button>
           <button id="openGameMode" class="menu-card" type="button">
             <h2>Mode jeu</h2>
-            <p>Écoutez un mot et choisissez le bon symbole API parmi quatre propositions.</p>
+            <p>Écoutez un mot et choisissez le bon symbole API.</p>
           </button>
+        </div>
+        <div class="controls">
+          <button id="resetProgressButton" class="control-btn" type="button">Réinitialiser les données</button>
         </div>
       </section>
 
@@ -407,7 +407,7 @@
             </select>
           </div>
           <div class="learning-note">
-            Révision prioritaire, suivi des sons difficiles, comparaison des sons proches et sortie des sons maîtrisés sont activés.
+            Révision prioritaire et suivi des sons difficiles activés.
           </div>
           <div class="stats-grid">
             <div class="stat-card">
@@ -493,6 +493,7 @@
         const ipaGrid = document.getElementById("ipaGrid");
         const replayButton = document.getElementById("replayButton");
         const nextButton = document.getElementById("nextButton");
+        const resetProgressButton = document.getElementById("resetProgressButton");
         const learningSetSelect = document.getElementById("learningSetSelect");
         const reviewQueueInfo = document.getElementById("reviewQueueInfo");
         const weakSoundsInfo = document.getElementById("weakSoundsInfo");
@@ -591,6 +592,17 @@
         function saveStoredStats() {
           try {
             localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(ipaStats));
+          } catch (_) {
+          }
+        }
+
+        function resetStoredStats() {
+          Object.keys(ipaStats).forEach((key) => {
+            delete ipaStats[key];
+          });
+          reviewQueue = [];
+          try {
+            localStorage.removeItem(LOCAL_STORAGE_KEY);
           } catch (_) {
           }
         }
@@ -950,6 +962,35 @@
           return map;
         }
 
+        function createTableRow(ipa, rowRecords) {
+          const tr = document.createElement("tr");
+          const th = document.createElement("th");
+          const ipaLabel = document.createElement("div");
+          ipaLabel.className = "table-ipa-btn";
+          ipaLabel.textContent = `[${ipa}]`;
+          th.appendChild(ipaLabel);
+
+          const td = document.createElement("td");
+          const wordList = document.createElement("div");
+          wordList.className = "word-list";
+
+          rowRecords.forEach((record) => {
+            const wordButton = document.createElement("button");
+            wordButton.type = "button";
+            wordButton.className = "table-word-btn";
+            wordButton.innerHTML = renderWordLabel(record.word, record.bold);
+            wordButton.addEventListener("click", () => {
+              playRecordAudio(record, tableStatus);
+            });
+            wordList.appendChild(wordButton);
+          });
+
+          td.appendChild(wordList);
+          tr.appendChild(th);
+          tr.appendChild(td);
+          return tr;
+        }
+
         function renderTable() {
           const rowsByIpa = buildTableRowsMap();
           const renderedIpas = new Set();
@@ -972,31 +1013,7 @@
 
             sectionRows.forEach((ipa) => {
               renderedIpas.add(ipa);
-              const rowRecords = rowsByIpa.get(ipa);
-              const tr = document.createElement("tr");
-              const th = document.createElement("th");
-              const ipaLabel = document.createElement("div");
-              ipaLabel.className = "table-ipa-btn";
-              ipaLabel.textContent = `[${ipa}]`;
-              th.appendChild(ipaLabel);
-
-              const td = document.createElement("td");
-              const wordList = document.createElement("div");
-              wordList.className = "word-list";
-              rowRecords.forEach((record) => {
-                const wordButton = document.createElement("button");
-                wordButton.type = "button";
-                wordButton.className = "table-word-btn";
-                wordButton.innerHTML = renderWordLabel(record.word, record.bold);
-                wordButton.addEventListener("click", () => {
-                  playRecordAudio(record, tableStatus);
-                });
-                wordList.appendChild(wordButton);
-              });
-              td.appendChild(wordList);
-              tr.appendChild(th);
-              tr.appendChild(td);
-              tbody.appendChild(tr);
+              tbody.appendChild(createTableRow(ipa, rowsByIpa.get(ipa)));
             });
 
             table.appendChild(tbody);
@@ -1015,31 +1032,7 @@
             const table = document.createElement("table");
             const tbody = document.createElement("tbody");
             remaining.forEach((ipa) => {
-              const rowRecords = rowsByIpa.get(ipa);
-              const tr = document.createElement("tr");
-              const th = document.createElement("th");
-              const ipaLabel = document.createElement("div");
-              ipaLabel.className = "table-ipa-btn";
-              ipaLabel.textContent = `[${ipa}]`;
-              th.appendChild(ipaLabel);
-
-              const td = document.createElement("td");
-              const wordList = document.createElement("div");
-              wordList.className = "word-list";
-              rowRecords.forEach((record) => {
-                const wordButton = document.createElement("button");
-                wordButton.type = "button";
-                wordButton.className = "table-word-btn";
-                wordButton.innerHTML = renderWordLabel(record.word, record.bold);
-                wordButton.addEventListener("click", () => {
-                  playRecordAudio(record, tableStatus);
-                });
-                wordList.appendChild(wordButton);
-              });
-              td.appendChild(wordList);
-              tr.appendChild(th);
-              tr.appendChild(td);
-              tbody.appendChild(tr);
+              tbody.appendChild(createTableRow(ipa, rowsByIpa.get(ipa)));
             });
             table.appendChild(tbody);
             wrapper.appendChild(table);
@@ -1048,13 +1041,13 @@
         }
 
         async function loadData() {
-          const response = await fetch("./data/ipa_words.apkg_audio.updated.json");
+          const response = await fetch("./data/ipa_words.json");
           if (!response.ok) {
-            throw new Error("Impossible de charger ipa_words.apkg_audio.updated.json.");
+            throw new Error("Impossible de charger ipa_words.json.");
           }
           const json = await response.json();
           if (!Array.isArray(json) || json.length === 0) {
-            throw new Error("Le fichier ipa_words.apkg_audio.updated.json est vide.");
+            throw new Error("Le fichier ipa_words.json est vide.");
           }
 
           const normalized = Array.isArray(json[0]) ? json.flat() : json;
@@ -1130,6 +1123,16 @@
           reviewQueue = reviewQueue.filter((item) =>
             getEligibleRecords().some((record) => record._id === item.recordId)
           );
+          updateLearningDashboard();
+          renderGameQuestion();
+        });
+
+        resetProgressButton.addEventListener("click", () => {
+          if (!window.confirm("Réinitialiser toutes les données de progression ?")) {
+            return;
+          }
+          resetStoredStats();
+          setGameFeedback("Données de progression réinitialisées.", "ok", false);
           updateLearningDashboard();
           renderGameQuestion();
         });

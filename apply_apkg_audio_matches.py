@@ -6,12 +6,12 @@ from pathlib import Path
 
 DEFAULT_DATA = Path("data/ipa_words.json")
 DEFAULT_MATCHES = Path("audio/apkg_audio_matches.json")
-DEFAULT_OUTPUT = Path("data/ipa_words.apkg_audio.updated.json")
+DEFAULT_OUTPUT = Path("data/ipa_words.json")
 
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Apply extracted APKG audio matches to ipa_words.json without modifying the original."
+        description="Apply extracted APKG audio matches to ipa_words.json."
     )
     parser.add_argument("--data", type=Path, default=DEFAULT_DATA, help="Path to ipa_words.json")
     parser.add_argument(
