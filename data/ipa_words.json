@@ -6,7 +6,9 @@
     "bold": "i",
     "note": "",
     "needs_review": true,
-    "audio": "audio/Fr-idée.ogg"
+    "audio": {
+      "file": "audio/apkg_extracted/idee.mp3"
+    }
   },
   {
     "group": "vowels_oral",
@@ -15,7 +17,9 @@
     "bold": "i",
     "note": "",
     "needs_review": true,
-    "audio": "audio/Fr-un_livre-fr-ouest.ogg"
+    "audio": {
+      "file": "audio/apkg_extracted/livre.mp3"
+    }
   },
   {
     "group": "vowels_oral",
@@ -87,7 +91,10 @@
     "word": "aller",
     "bold": "er",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/aller.mp3"
+    }
   },
   {
     "group": "vowels_oral",
@@ -95,7 +102,10 @@
     "word": "et",
     "bold": "et",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/et.mp3"
+    }
   },
   {
     "group": "vowels_oral",
@@ -111,7 +121,10 @@
     "word": "feu",
     "bold": "eu",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/feu.mp3"
+    }
   },
   {
     "group": "vowels_oral",
@@ -127,7 +140,10 @@
     "word": "beau",
     "bold": "eau",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/beau.mp3"
+    }
   },
   {
     "group": "vowels_oral",
@@ -135,7 +151,10 @@
     "word": "tôt",
     "bold": "ô",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/tot.mp3"
+    }
   },
   {
     "group": "vowels_oral",
@@ -143,7 +162,10 @@
     "word": "je",
     "bold": "e",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/je.mp3"
+    }
   },
   {
     "group": "vowels_oral",
@@ -151,7 +173,10 @@
     "word": "demain",
     "bold": "e",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/demain.mp3"
+    }
   },
   {
     "group": "vowels_oral",
@@ -167,7 +192,10 @@
     "word": "mère",
     "bold": "è",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/mere.mp3"
+    }
   },
   {
     "group": "vowels_oral",
@@ -175,11 +203,14 @@
     "word": "jamais",
     "bold": "ais",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/jamais.mp3"
+    }
   },
   {
     "group": "vowels_oral",
-    "ipa": "e:",
+    "ipa": "ɛː",
     "word": "mètre",
     "bold": "è",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
@@ -187,7 +218,7 @@
   },
   {
     "group": "vowels_oral",
-    "ipa": "e:",
+    "ipa": "ɛː",
     "word": "presse",
     "bold": "e",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
@@ -195,7 +226,7 @@
   },
   {
     "group": "vowels_oral",
-    "ipa": "e:",
+    "ipa": "ɛː",
     "word": "bête",
     "bold": "ê",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
@@ -215,7 +246,10 @@
     "word": "cœur",
     "bold": "œ",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/c_ur.mp3"
+    }
   },
   {
     "group": "vowels_oral",
@@ -231,7 +265,10 @@
     "word": "neuf",
     "bold": "eu",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/neuf.mp3"
+    }
   },
   {
     "group": "vowels_oral",
@@ -239,7 +276,10 @@
     "word": "or",
     "bold": "o",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/or.mp3"
+    }
   },
   {
     "group": "vowels_oral",
@@ -247,7 +287,10 @@
     "word": "porte",
     "bold": "o",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/porte.mp3"
+    }
   },
   {
     "group": "vowels_oral",
@@ -279,7 +322,10 @@
     "word": "papa",
     "bold": "a",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/papa.mp3"
+    }
   },
   {
     "group": "vowels_oral",
@@ -287,13 +333,16 @@
     "word": "famille",
     "bold": "a",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/famille.mp3"
+    }
   },
   {
     "group": "vowels_oral",
     "ipa": "a",
     "word": "patte",
-    "bold": "",
+    "bold": "a",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
     "needs_review": true
   },
@@ -303,7 +352,10 @@
     "word": "ananas",
     "bold": "as",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/ananas.mp3"
+    }
   },
   {
     "group": "vowels_oral",
@@ -351,7 +403,10 @@
     "word": "matin",
     "bold": "in",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/matin.mp3"
+    }
   },
   {
     "group": "vowels_nasal",
@@ -359,7 +414,10 @@
     "word": "un",
     "bold": "un",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/un.mp3"
+    }
   },
   {
     "group": "vowels_nasal",
@@ -375,7 +433,10 @@
     "word": "oncle",
     "bold": "on",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/oncle.mp3"
+    }
   },
   {
     "group": "vowels_nasal",
@@ -383,7 +444,10 @@
     "word": "monde",
     "bold": "on",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/monde.mp3"
+    }
   },
   {
     "group": "vowels_nasal",
@@ -391,7 +455,10 @@
     "word": "tomber",
     "bold": "om",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/tomber.mp3"
+    }
   },
   {
     "group": "vowels_nasal",
@@ -399,7 +466,10 @@
     "word": "enfant",
     "bold": "en",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/enfant.mp3"
+    }
   },
   {
     "group": "vowels_nasal",
@@ -431,7 +501,10 @@
     "word": "ville",
     "bold": "i",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/ville.mp3"
+    }
   },
   {
     "group": "vowels_relaxed",
@@ -439,7 +512,10 @@
     "word": "musique",
     "bold": "i",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/musique.mp3"
+    }
   },
   {
     "group": "vowels_relaxed",
@@ -447,7 +523,10 @@
     "word": "ours",
     "bold": "ou",
     "note": "download_error: HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/ours.mp3"
+    }
   },
   {
     "group": "vowels_relaxed",
@@ -479,7 +558,10 @@
     "word": "sud",
     "bold": "u",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/sud.mp3"
+    }
   },
   {
     "group": "vowels_relaxed",
@@ -495,7 +577,10 @@
     "word": "père",
     "bold": "p",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/pere.mp3"
+    }
   },
   {
     "group": "consonants",
@@ -519,7 +604,10 @@
     "word": "téléphone",
     "bold": "t",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/telephone.mp3"
+    }
   },
   {
     "group": "consonants",
@@ -543,7 +631,10 @@
     "word": "cours",
     "bold": "c",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/cours.mp3"
+    }
   },
   {
     "group": "consonants",
@@ -575,7 +666,10 @@
     "word": "quoi",
     "bold": "qu",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/quoi.mp3"
+    }
   },
   {
     "group": "consonants",
@@ -591,7 +685,10 @@
     "word": "bébé",
     "bold": "b",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/bebe.mp3"
+    }
   },
   {
     "group": "consonants",
@@ -605,7 +702,7 @@
     "group": "consonants",
     "ipa": "d",
     "word": "date",
-    "bold": "",
+    "bold": "d",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
@@ -613,7 +710,7 @@
     "group": "consonants",
     "ipa": "d",
     "word": "dentiste",
-    "bold": "",
+    "bold": "d",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
@@ -621,41 +718,45 @@
     "group": "consonants",
     "ipa": "d",
     "word": "vendredi",
-    "bold": "",
+    "bold": "d",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
-
   {
     "group": "consonants",
     "ipa": "g",
     "word": "garçon",
-    "bold": "",
+    "bold": "g",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/garcon.mp3"
+    }
   },
   {
     "group": "consonants",
     "ipa": "g",
     "word": "langue",
-    "bold": "",
+    "bold": "g",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
-
   {
     "group": "consonants",
     "ipa": "f",
     "word": "fille",
-    "bold": "",
+    "bold": "f",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/fille.mp3"
+    }
   },
   {
     "group": "consonants",
     "ipa": "f",
     "word": "français",
-    "bold": "",
+    "bold": "f",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
@@ -663,16 +764,15 @@
     "group": "consonants",
     "ipa": "f",
     "word": "pharmacie",
-    "bold": "",
+    "bold": "ph",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
-
   {
     "group": "consonants",
     "ipa": "s",
     "word": "célibataire",
-    "bold": "",
+    "bold": "c",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
@@ -680,40 +780,48 @@
     "group": "consonants",
     "ipa": "s",
     "word": "place",
-    "bold": "",
+    "bold": "c",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/place.mp3"
+    }
   },
   {
     "group": "consonants",
     "ipa": "s",
     "word": "façon",
-    "bold": "",
+    "bold": "ç",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/facon.mp3"
+    }
   },
   {
     "group": "consonants",
     "ipa": "s",
     "word": "semaine",
-    "bold": "",
+    "bold": "s",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/semaine.mp3"
+    }
   },
   {
     "group": "consonants",
     "ipa": "s",
     "word": "mars",
-    "bold": "",
+    "bold": "s",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
-
   {
     "group": "consonants",
     "ipa": "ʃ",
     "word": "chat",
-    "bold": "",
+    "bold": "ch",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
@@ -721,7 +829,7 @@
     "group": "consonants",
     "ipa": "ʃ",
     "word": "cheveu",
-    "bold": "",
+    "bold": "ch",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
@@ -729,7 +837,7 @@
     "group": "consonants",
     "ipa": "ʃ",
     "word": "vache",
-    "bold": "",
+    "bold": "ch",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
@@ -737,24 +845,26 @@
     "group": "consonants",
     "ipa": "ʃ",
     "word": "short",
-    "bold": "",
+    "bold": "sh",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
-
   {
     "group": "consonants",
     "ipa": "v",
     "word": "ville",
-    "bold": "",
+    "bold": "v",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/ville.mp3"
+    }
   },
   {
     "group": "consonants",
     "ipa": "v",
     "word": "cave",
-    "bold": "",
+    "bold": "v",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
@@ -762,16 +872,15 @@
     "group": "consonants",
     "ipa": "v",
     "word": "wagon",
-    "bold": "",
+    "bold": "w",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
-
   {
     "group": "consonants",
     "ipa": "z",
     "word": "zèbre",
-    "bold": "",
+    "bold": "z",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
@@ -779,7 +888,7 @@
     "group": "consonants",
     "ipa": "z",
     "word": "quatorze",
-    "bold": "",
+    "bold": "z",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
@@ -787,7 +896,7 @@
     "group": "consonants",
     "ipa": "z",
     "word": "fraise",
-    "bold": "",
+    "bold": "s",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
@@ -795,16 +904,15 @@
     "group": "consonants",
     "ipa": "z",
     "word": "dixième",
-    "bold": "",
+    "bold": "x",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
-
   {
     "group": "consonants",
     "ipa": "ʒ",
     "word": "janvier",
-    "bold": "",
+    "bold": "j",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
@@ -812,7 +920,7 @@
     "group": "consonants",
     "ipa": "ʒ",
     "word": "agenda",
-    "bold": "",
+    "bold": "g",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
@@ -820,24 +928,26 @@
     "group": "consonants",
     "ipa": "ʒ",
     "word": "neige",
-    "bold": "",
+    "bold": "g",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
-
   {
     "group": "consonants",
     "ipa": "l",
     "word": "livre",
-    "bold": "",
+    "bold": "l",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/livre.mp3"
+    }
   },
   {
     "group": "consonants",
     "ipa": "l",
     "word": "stylo",
-    "bold": "",
+    "bold": "l",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
@@ -845,24 +955,29 @@
     "group": "consonants",
     "ipa": "l",
     "word": "elle",
-    "bold": "",
+    "bold": "ll",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/elle.mp3"
+    }
   },
-
   {
     "group": "consonants",
     "ipa": "R",
     "word": "regarder",
-    "bold": "",
+    "bold": "r",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/regarder.mp3"
+    }
   },
   {
     "group": "consonants",
     "ipa": "R",
     "word": "ordinateur",
-    "bold": "",
+    "bold": "r",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
@@ -870,24 +985,29 @@
     "group": "consonants",
     "ipa": "R",
     "word": "vrai",
-    "bold": "",
+    "bold": "r",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/vrai.mp3"
+    }
   },
-
   {
     "group": "consonants",
     "ipa": "m",
     "word": "maman",
-    "bold": "",
+    "bold": "m",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/maman.mp3"
+    }
   },
   {
     "group": "consonants",
     "ipa": "m",
     "word": "manteau",
-    "bold": "",
+    "bold": "m",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
@@ -895,41 +1015,48 @@
     "group": "consonants",
     "ipa": "m",
     "word": "pomme",
-    "bold": "",
+    "bold": "mm",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
-
   {
     "group": "consonants",
     "ipa": "n",
     "word": "noir",
-    "bold": "",
+    "bold": "n",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/noir.mp3"
+    }
   },
   {
     "group": "consonants",
     "ipa": "n",
     "word": "nom",
-    "bold": "",
+    "bold": "n",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/nom.mp3"
+    }
   },
   {
     "group": "consonants",
     "ipa": "n",
     "word": "diner",
-    "bold": "",
+    "bold": "n",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/diner.mp3"
+    }
   },
-
   {
     "group": "consonants",
     "ipa": "ɲ",
     "word": "campagne",
-    "bold": "",
+    "bold": "gn",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
@@ -937,16 +1064,15 @@
     "group": "consonants",
     "ipa": "ɲ",
     "word": "agneau",
-    "bold": "",
+    "bold": "gn",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
-
   {
     "group": "consonants",
     "ipa": "ŋ",
     "word": "camping",
-    "bold": "",
+    "bold": "ng",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
@@ -954,16 +1080,15 @@
     "group": "consonants",
     "ipa": "ŋ",
     "word": "pingpong",
-    "bold": "",
+    "bold": "ng",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
-
   {
     "group": "semivowels",
     "ipa": "j",
     "word": "ail",
-    "bold": "",
+    "bold": "il",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
@@ -971,57 +1096,67 @@
     "group": "semivowels",
     "ipa": "j",
     "word": "fille",
-    "bold": "",
+    "bold": "lle",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/fille.mp3"
+    }
   },
   {
     "group": "semivowels",
     "ipa": "j",
     "word": "pied",
-    "bold": "",
+    "bold": "i",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/pied.mp3"
+    }
   },
   {
     "group": "semivowels",
     "ipa": "j",
     "word": "yogourt",
-    "bold": "",
+    "bold": "y",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
-
   {
     "group": "semivowels",
     "ipa": "ɥ",
     "word": "huile",
-    "bold": "",
+    "bold": "hu",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/huile.mp3"
+    }
   },
   {
     "group": "semivowels",
     "ipa": "ɥ",
     "word": "lui",
-    "bold": "",
+    "bold": "u",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/lui.mp3"
+    }
   },
   {
     "group": "semivowels",
     "ipa": "ɥ",
     "word": "suie",
-    "bold": "",
+    "bold": "u",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
-
   {
     "group": "semivowels",
     "ipa": "w",
     "word": "oiseau",
-    "bold": "",
+    "bold": "oi",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
@@ -1029,15 +1164,18 @@
     "group": "semivowels",
     "ipa": "w",
     "word": "voir",
-    "bold": "",
+    "bold": "oi",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
-    "needs_review": true
+    "needs_review": true,
+    "audio": {
+      "file": "audio/apkg_extracted/voir.mp3"
+    }
   },
   {
     "group": "semivowels",
     "ipa": "w",
     "word": "ouate",
-    "bold": "",
+    "bold": "ou",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   },
@@ -1045,9 +1183,8 @@
     "group": "semivowels",
     "ipa": "w",
     "word": "watt",
-    "bold": "",
+    "bold": "w",
     "note": "audio_fetch_error: HTTP Error 429: Too many requests (f061ab2)",
     "needs_review": true
   }
-
 ]

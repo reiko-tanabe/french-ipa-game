@@ -18,6 +18,7 @@ DEFAULT_REPORT = Path("audio/apkg_audio_matches.json")
 
 SOUND_RE = re.compile(r"\[sound:([^\]]+)\]")
 TAG_RE = re.compile(r"<[^>]+>")
+TOKEN_SPLIT_RE = re.compile(r"[,;/|]+")
 ARTICLES = (
     "le ",
     "la ",
@@ -28,6 +29,16 @@ ARTICLES = (
     "l'",
     "d'",
 )
+DIRECT_WORD_FIELDS = {
+    "word",
+    "word with article",
+    "word with declinations",
+    "1",
+}
+REFERENCE_ONLY_FIELDS = {
+    "sample words",
+    "sample words (table)",
+}
 
 
 def parse_args():
@@ -47,6 +58,16 @@ def parse_args():
         type=Path,
         default=DEFAULT_REPORT,
         help="JSON report path for matched audio mappings",
+    )
+    parser.add_argument(
+        "--compare-only",
+        action="store_true",
+        help="Only compare ipa_words.json against the .apkg and write a report without extracting audio",
+    )
+    parser.add_argument(
+        "--allow-partial",
+        action="store_true",
+        help="Allow partial matches during extraction. Keep this off unless the compare report has been reviewed.",
     )
     return parser.parse_args()
 
@@ -81,21 +102,66 @@ def load_models(conn: sqlite3.Connection):
     return json.loads(raw)
 
 
+def add_candidate(candidate_map, text, source, priority):
+    normalized = normalize_text(text)
+    if not normalized:
+        return
+    existing = candidate_map.get(normalized)
+    if existing is None or priority < existing["priority"]:
+        candidate_map[normalized] = {"source": source, "priority": priority}
+
+
+def extract_text_fragments(value: str):
+    plain = html.unescape(TAG_RE.sub(" ", str(value)))
+    fragments = {plain}
+    for part in TOKEN_SPLIT_RE.split(plain):
+        part = part.strip()
+        if part:
+            fragments.add(part)
+    for line in plain.splitlines():
+        line = line.strip()
+        if line:
+            fragments.add(line)
+    return fragments
+
+
 def extract_note_candidates(field_names, fields):
-    candidates = set()
+    direct_map = {}
+    reference_map = {}
     audio_files = []
+    fallback_text_fields = {
+        "front",
+        "back",
+        "2",
+        "3",
+        "4",
+        "translation",
+        "meaning",
+        "example sentences",
+        "example sentences without translation",
+    }
+
     for name, value in zip(field_names, fields):
         lowered_name = name.lower()
         if "audio" in lowered_name:
             audio_files.extend(SOUND_RE.findall(value))
-        if lowered_name in {"word", "word with article"}:
-            normalized = normalize_text(value)
-            if normalized:
-                candidates.add(normalized)
+
+        fragments = extract_text_fragments(value)
+        if lowered_name in DIRECT_WORD_FIELDS:
+            for fragment in fragments:
+                add_candidate(direct_map, fragment, lowered_name, 0)
+        elif lowered_name in REFERENCE_ONLY_FIELDS:
+            for fragment in fragments:
+                add_candidate(reference_map, fragment, lowered_name, 0)
+        elif lowered_name in fallback_text_fields:
+            for fragment in fragments:
+                add_candidate(reference_map, fragment, lowered_name, 1)
+
     for value in fields:
-      for sound in SOUND_RE.findall(value):
+        for sound in SOUND_RE.findall(value):
             audio_files.append(sound)
-    return candidates, audio_files
+
+    return direct_map, reference_map, audio_files
 
 
 def choose_audio(field_names, fields):
@@ -120,7 +186,8 @@ def choose_audio(field_names, fields):
 
 def build_audio_index(conn: sqlite3.Connection):
     models = load_models(conn)
-    index = {}
+    direct_index = {}
+    reference_index = {}
     query = "select mid, flds from notes"
     for mid, raw_fields in conn.execute(query):
         model = models.get(str(mid))
@@ -128,18 +195,33 @@ def build_audio_index(conn: sqlite3.Connection):
             continue
         field_names = [field["name"] for field in model.get("flds", [])]
         fields = raw_fields.split("\x1f")
-        candidates, _ = extract_note_candidates(field_names, fields)
+        direct_candidates, reference_candidates, _ = extract_note_candidates(field_names, fields)
         chosen_audio = choose_audio(field_names, fields)
-        if not candidates or not chosen_audio:
+
+        for candidate, candidate_meta in reference_candidates.items():
+            entry = {
+                "model": model.get("name", ""),
+                "audio": chosen_audio,
+                "fields": field_names,
+                "candidate": candidate,
+                "candidate_source": candidate_meta["source"],
+                "candidate_priority": candidate_meta["priority"],
+            }
+            reference_index.setdefault(candidate, []).append(entry)
+
+        if not direct_candidates or not chosen_audio:
             continue
-        entry = {
-            "model": model.get("name", ""),
-            "audio": chosen_audio,
-            "fields": field_names,
-        }
-        for candidate in candidates:
-            index.setdefault(candidate, []).append(entry)
-    return index
+        for candidate, candidate_meta in direct_candidates.items():
+            entry = {
+                "model": model.get("name", ""),
+                "audio": chosen_audio,
+                "fields": field_names,
+                "candidate": candidate,
+                "candidate_source": candidate_meta["source"],
+                "candidate_priority": candidate_meta["priority"],
+            }
+            direct_index.setdefault(candidate, []).append(entry)
+    return direct_index, reference_index
 
 
 def choose_best_entry(entries):
@@ -150,9 +232,10 @@ def choose_best_entry(entries):
     ]
     def score(entry):
         try:
-            return priorities.index(entry["model"])
+            model_score = priorities.index(entry["model"])
         except ValueError:
-            return len(priorities)
+            model_score = len(priorities)
+        return (entry.get("candidate_priority", 99), model_score)
     return sorted(entries, key=score)[0]
 
 
@@ -163,6 +246,63 @@ def safe_filename(name: str) -> str:
     return normalized or "audio"
 
 
+def find_entries(audio_index, word: str):
+    normalized = normalize_text(word)
+    exact_entries = audio_index.get(normalized, [])
+    if exact_entries:
+        return exact_entries, "exact"
+
+    partial_entries = []
+    word_tokens = [token for token in normalized.split() if len(token) >= 4]
+    for candidate, entries in audio_index.items():
+        if normalized and normalized in candidate:
+            partial_entries.extend(entries)
+            continue
+        if candidate and candidate in normalized:
+            partial_entries.extend(entries)
+            continue
+        if word_tokens and any(token in candidate for token in word_tokens):
+            partial_entries.extend(entries)
+
+    deduped = []
+    seen = set()
+    for entry in partial_entries:
+        key = (entry["audio"], entry["model"], entry["candidate"])
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(entry)
+    if deduped:
+        return deduped, "partial"
+    return [], "unmatched"
+
+
+def build_compare_item(record, entries, match_type):
+    best = choose_best_entry(entries)
+    return {
+        "word": str(record.get("word", "")).strip(),
+        "ipa": record.get("ipa", ""),
+        "match_type": match_type,
+        "candidate": best.get("candidate", ""),
+        "candidate_source": best.get("candidate_source", ""),
+        "audio_source": best.get("audio", ""),
+        "model": best.get("model", ""),
+        "alternatives": [
+            {
+                "candidate": entry.get("candidate", ""),
+                "candidate_source": entry.get("candidate_source", ""),
+                "audio_source": entry.get("audio", ""),
+                "model": entry.get("model", ""),
+            }
+            for entry in entries[:5]
+        ],
+    }
+
+
+def build_reference_item(record, entries):
+    return build_compare_item(record, entries, "reference_only")
+
+
 def main():
     args = parse_args()
     records = load_records(args.data)
@@ -171,6 +311,7 @@ def main():
 
     matched = []
     unmatched = []
+    partial_candidates = []
 
     with tempfile.TemporaryDirectory() as tmpdir:
         tmp = Path(tmpdir)
@@ -178,17 +319,30 @@ def main():
             zf.extract("collection.anki2", tmp)
             media_map = json.loads(zf.read("media"))
             conn = sqlite3.connect(tmp / "collection.anki2")
-            audio_index = build_audio_index(conn)
+            audio_index, reference_index = build_audio_index(conn)
 
             args.output_dir.mkdir(parents=True, exist_ok=True)
             extracted_files = {}
 
             for record in records:
                 word = str(record.get("word", "")).strip()
-                normalized = normalize_text(word)
-                entries = audio_index.get(normalized, [])
+                entries, match_type = find_entries(audio_index, word)
                 if not entries:
-                    unmatched.append(word)
+                    reference_entries, _ = find_entries(reference_index, word)
+                    if reference_entries:
+                        partial_candidates.append(build_reference_item(record, reference_entries))
+                    unmatched.append({"word": word, "ipa": record.get("ipa", "")})
+                    continue
+
+                if match_type == "partial" and not args.allow_partial:
+                    partial_candidates.append(build_compare_item(record, entries, match_type))
+                    unmatched.append(
+                        {
+                            "word": word,
+                            "ipa": record.get("ipa", ""),
+                            "reason": "partial_match_requires_review",
+                        }
+                    )
                     continue
 
                 entry = choose_best_entry(entries)
@@ -200,10 +354,19 @@ def main():
                         break
 
                 if media_key is None:
-                    unmatched.append(word)
+                    unmatched.append(
+                        {
+                            "word": word,
+                            "ipa": record.get("ipa", ""),
+                            "match_type": match_type,
+                            "candidate": entry.get("candidate", ""),
+                            "candidate_source": entry.get("candidate_source", ""),
+                            "reason": "media_missing",
+                        }
+                    )
                     continue
 
-                if media_name not in extracted_files:
+                if not args.compare_only and media_name not in extracted_files:
                     suffix = Path(media_name).suffix or ".mp3"
                     dest_name = f"{safe_filename(word)}{suffix}"
                     dest = args.output_dir / dest_name
@@ -211,12 +374,20 @@ def main():
                         shutil.copyfileobj(source, target)
                     extracted_files[media_name] = dest.as_posix()
 
+                audio_file = extracted_files.get(media_name)
+                if args.compare_only:
+                    suffix = Path(media_name).suffix or ".mp3"
+                    audio_file = (args.output_dir / f"{safe_filename(word)}{suffix}").as_posix()
+
                 matched.append(
                     {
                         "word": word,
                         "ipa": record.get("ipa", ""),
+                        "match_type": match_type,
+                        "candidate": entry.get("candidate", ""),
+                        "candidate_source": entry.get("candidate_source", ""),
                         "audio_source": media_name,
-                        "audio_file": extracted_files[media_name],
+                        "audio_file": audio_file,
                         "model": entry["model"],
                     }
                 )
@@ -227,16 +398,20 @@ def main():
         "unmatched_count": len(unmatched),
         "matched": matched,
         "unmatched": unmatched,
+        "partial_candidates_count": len(partial_candidates),
+        "partial_candidates": partial_candidates,
     }
     args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     print(f"Wrote report: {args.report}")
     print(f"Matched: {len(matched)}")
     print(f"Unmatched: {len(unmatched)}")
+    if partial_candidates:
+        print(f"Partial candidates needing review: {len(partial_candidates)}")
     if unmatched:
         print("First unmatched words:")
-        for word in unmatched[:20]:
-            print(f"- {word}")
+        for item in unmatched[:20]:
+            print(f"- {item['word']}")
 
 
 if __name__ == "__main__":

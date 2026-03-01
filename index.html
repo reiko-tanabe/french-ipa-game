@@ -185,6 +185,8 @@
       .ipa-btn {
         padding: 14px 10px;
         font-size: 1.5rem;
+        font-family: "Times New Roman", "Noto Serif", "Georgia", serif;
+        line-height: 1.3;
       }
 
       .controls {
@@ -285,6 +287,8 @@
         font-size: 1.25rem;
         background: #f8f5ef;
         cursor: default;
+        font-family: "Times New Roman", "Noto Serif", "Georgia", serif;
+        line-height: 1.3;
       }
 
       .word-list {
@@ -449,7 +453,7 @@
     <script>
       (() => {
         const IPA_OPTION_GROUPS = [
-          ["e", "ɛ", "e:", "ə"],
+          ["e", "ɛ", "ɛː", "ə"],
           ["ø", "œ", "œ̃"],
           ["o", "ɔ"],
           ["i", "y", "u"],
@@ -466,7 +470,7 @@
         ];
 
         const TABLE_SECTIONS = [
-          { title: "Les voyelles orales", ipas: ["i", "y", "u", "e", "ø", "o", "ə", "ɛ", "e:", "œ", "ɔ", "a", "ɑ"] },
+          { title: "Les voyelles orales", ipas: ["i", "y", "u", "e", "ø", "o", "ə", "ɛ", "ɛː", "œ", "ɔ", "a", "ɑ"] },
           { title: "Les voyelles nasales", ipas: ["ɛ̃", "œ̃", "ɔ̃", "ɑ̃"] },
           { title: "Les voyelles relâchées", ipas: ["ɪ", "ʊ", "ʏ"] },
           { title: "Les semi-consonnes ou semi-voyelles", ipas: ["j", "ɥ", "w"] },
@@ -509,7 +513,7 @@
 
         const LEARNING_SETS = {
           all: null,
-          voyelles_orales: ["i", "y", "u", "e", "ø", "o", "ə", "ɛ", "e:", "œ", "ɔ", "a", "ɑ"],
+          voyelles_orales: ["i", "y", "u", "e", "ø", "o", "ə", "ɛ", "ɛː", "œ", "ɔ", "a", "ɑ"],
           voyelles_nasales: ["ɛ̃", "œ̃", "ɔ̃", "ɑ̃"],
           voyelles_relachees: ["ɪ", "ʊ", "ʏ"],
           semi_voyelles: ["j", "ɥ", "w"],

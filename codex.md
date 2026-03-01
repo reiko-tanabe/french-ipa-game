@@ -1,356 +1,134 @@
 # Codex Agent Prompt File
-# Project: French IPA Pronunciation Learning Web Game
+# Project: French IPA Pronunciation Learning Web App
 
----
+## Project Objective
 
-# Agent Identity
-
-You are an autonomous software development agent.
-
-Your role includes:
-
-- software architect
-- frontend engineer
-- QA engineer
-- refactoring engineer
-
-You must work systematically and produce production-quality code.
-
-Do not skip phases.
-
----
-
-# Critical Instruction (User Confirmation Requirement)
-
-If ANY required information is missing, unclear, ambiguous, or underspecified:
-
-YOU MUST STOP.
-
-YOU MUST ASK THE USER FOR CLARIFICATION.
-
-DO NOT:
-
-- assume
-- invent
-- guess
-- hallucinate
-- fill missing requirements yourself
-
-WAIT for user response before continuing.
-
-This rule has absolute priority.
-
----
-
-# Project Objective
-
-Create a browser-based French pronunciation learning game.
+Create and maintain a browser-based French IPA learning web app.
 
 This is an educational tool.
 
----
+## Current Main Specification
 
-# Functional Requirements
+The app is currently implemented in a single file:
 
-The system must provide:
+- `index.html`
 
-## Word Display
+Primary dataset currently used by the app:
 
-- Display ONE French word at a time
-- Word must be selected randomly from dataset
+- `data/ipa_words.apkg_audio.updated.json`
 
-## Audio Playback
+Fallback source dataset:
 
-When user clicks the word:
+- `data/ipa_words.json`
 
-- play pronunciation audio
-- use browser speech synthesis (speechSynthesis API)
-- language: fr-FR
+## Current App Structure
 
-## IPA Selection
+The app has 3 main views:
 
-Display IPA symbols as selectable options.
+1. Home page
+   - lets the user choose between:
+   - `Mode tableau`
+   - `Mode jeu`
 
-User selects ONE symbol.
+2. Table view
+   - displays a phonetic table generated from JSON data
+   - current `group` values in JSON should not be treated as the table layout source
+   - words are grouped for display by predefined IPA sections in the UI
+   - IPA labels are display-only
+   - clicking a word plays audio
 
-## Answer Validation
+3. Game view
+   - displays one word at a time
+   - user hears the word by clicking it
+   - user selects one IPA symbol from 4 choices
+   - includes learning features such as:
+   - review priority
+   - weak-sound tracking
+   - close-sound comparison
+   - mastery by consecutive correct answers
+   - study-set selection
 
-If correct:
+## Language Requirement
 
-show:
+All visible UI text should be in French unless the user explicitly requests otherwise.
 
-○
+## Audio Rules
 
-If incorrect:
+Audio playback priority:
 
-show:
+1. local file in record `audio.file`
+2. `speechSynthesis` with `fr-FR`
 
-×
+If a local audio file exists, prefer it.
 
----
+If `speechSynthesis` is used, prefer `fr-FR`.
 
-# Dataset
+## Dataset Rules
 
-Words and IPA symbols will be provided by user.
+Each item may contain fields such as:
 
-DO NOT create your own dataset.
+- `group`
+- `ipa`
+- `word`
+- `bold`
+- `note`
+- `needs_review`
+- `audio`
 
-If dataset is missing:
+If `bold` is present and found in `word`, that substring should be emphasized in the UI.
 
-ASK USER.
+Do not invent dataset entries.
 
----
+Do not reorder dataset items unless explicitly requested.
 
-# Technical Requirements
+## Table View Rules
 
-Mandatory:
+The table should be generated from dataset content.
 
-Single file implementation:
+The current table layout is based on predefined IPA section groupings in `index.html`, not on the JSON `group` field.
 
-index.html
+Click behavior:
 
-Use ONLY:
+- click word: play audio
+- click IPA label: no audio
 
-- HTML
-- CSS
-- JavaScript
+## Game Rules
 
-DO NOT use:
+The game should:
 
-- frameworks
-- build tools
-- npm
-- external dependencies
+- show one word at a time
+- validate one IPA choice
+- show immediate feedback
+- display the incorrect-answer image when the answer is wrong
 
-Must run locally:
+Choice generation:
 
-file:///
+- use predefined IPA comparison groups
+- if the target group has fewer than 4 symbols, supplement from other IPA values
 
-No server required.
+## Current Related Files
 
----
+- `index.html`
+- `data/ipa_words.json`
+- `data/ipa_words.apkg_audio.updated.json`
+- `audio_attribution.json`
+- `extract_apkg_audio.py`
+- `apply_apkg_audio_matches.py`
+- `validate.py`
 
-# Code Quality Requirements
+## Files No Longer Used
 
-Code must be:
+These are no longer part of the active workflow:
 
-- modular
-- readable
-- maintainable
-- extensible
+- `fetch_wiktionary_audio.py`
+- `generate_whisperx_timestamps.py`
 
-Separate:
+Do not reintroduce them unless explicitly requested.
 
-- data
-- logic
-- UI
+## Working Rules
 
-Use functions.
+If a required detail is missing or ambiguous, ask the user before making a structural change.
 
-Avoid global pollution when possible.
+Prefer minimal, targeted edits over broad rewrites unless the user requests a redesign.
 
----
-
-# UI Requirements
-
-Minimal UI:
-
-Required components:
-
-Word display area
-
-IPA selection buttons
-
-Result display
-
-Next button
-
-Replay audio button
-
----
-
-# Audio Requirements
-
-Use:
-
-speechSynthesis
-
-Voice selection priority:
-
-fr-FR
-
-If unavailable:
-
-ASK USER FOR INSTRUCTION
-
-DO NOT silently fallback.
-
----
-
-# Development Workflow
-
-You MUST follow ALL phases:
-
----
-
-# Phase 1: Requirement Validation
-
-Check:
-
-Is dataset provided?
-
-Are IPA mappings clear?
-
-Is audio method confirmed?
-
-If ANY missing:
-
-ASK USER.
-
-STOP.
-
----
-
-# Phase 2: Architecture Design
-
-Output:
-
-System structure
-
-Modules
-
-Data flow
-
-Event flow
-
-DO NOT write code yet.
-
-WAIT FOR USER APPROVAL.
-
----
-
-# Phase 3: Implementation
-
-Write complete working code.
-
-Single file:
-
-index.html
-
----
-
-# Phase 4: QA
-
-Perform self-review:
-
-Check:
-
-logic
-
-bugs
-
-edge cases
-
-audio trigger
-
-answer validation
-
----
-
-# Phase 5: Refactor
-
-Improve:
-
-readability
-
-structure
-
-maintainability
-
----
-
-# Phase 6: Final Output
-
-Output:
-
-Final version:
-
-index.html
-
-ONLY when stable.
-
----
-
-# Behavior Rules
-
-DO NOT:
-
-skip phases
-
-rush to code
-
-assume requirements
-
-change specifications
-
-invent features
-
-add unrequested functionality
-
----
-
-# Communication Rules
-
-When asking user:
-
-Be specific.
-
-Example:
-
-"Dataset is missing. Please provide word and IPA mapping."
-
-NOT:
-
-"Something is missing"
-
----
-
-# Completion Definition
-
-Task is complete ONLY IF:
-
-Working index.html is produced
-
-AND
-
-User confirms it works
-
----
-
-# Error Handling Rule
-
-If you detect inconsistency in dataset:
-
-STOP
-
-ASK USER
-
----
-
-# Priority Order
-
-1 User instructions
-
-2 This codex.md
-
-3 Default agent behavior
-
----
-
-# Start Instruction
-
-Begin with:
-
-Phase 1: Requirement Validation
-
-DO NOT start coding immediately.
+Preserve existing working behavior unless the user asks for a change.
