@@ -783,14 +783,22 @@
           return String(lang || "").replace("_", "-").toLowerCase();
         }
 
-        function pickFrFrVoice(voices) {
+        function pickPreferredFrenchVoice(voices) {
+          const frCaVoice = voices.find((voice) => {
+            const lang = normalizeVoiceLang(voice.lang);
+            return lang === "fr-ca" || lang.startsWith("fr-ca-");
+          });
+          if (frCaVoice) {
+            return frCaVoice;
+          }
+
           return voices.find((voice) => {
             const lang = normalizeVoiceLang(voice.lang);
             return lang === "fr-fr" || lang.startsWith("fr-fr-");
           });
         }
 
-        function ensureFrFrVoiceAvailable() {
+        function ensureFrenchVoiceAvailable() {
           if (!("speechSynthesis" in window)) {
             return Promise.reject(new Error("L'API vocale n'est pas disponible."));
           }
@@ -799,16 +807,16 @@
             const synth = window.speechSynthesis;
 
             const finalize = () => {
-              const voice = pickFrFrVoice(synth.getVoices());
+              const voice = pickPreferredFrenchVoice(synth.getVoices());
               if (voice) {
                 frVoice = voice;
                 resolve();
               } else {
-                reject(new Error("Aucune voix fr-FR n'a été trouvée dans le navigateur."));
+                reject(new Error("Aucune voix fr-CA ou fr-FR n'a été trouvée dans le navigateur."));
               }
             };
 
-            const initial = pickFrFrVoice(synth.getVoices());
+            const initial = pickPreferredFrenchVoice(synth.getVoices());
             if (initial) {
               frVoice = initial;
               resolve();
@@ -861,13 +869,13 @@
           }
 
           if (!("speechSynthesis" in window) || !frVoice) {
-            setStatus(statusElement, "Aucune voix fr-FR n'est disponible.", "error");
+            setStatus(statusElement, "Aucune voix fr-CA ou fr-FR n'est disponible.", "error");
             return;
           }
 
           window.speechSynthesis.cancel();
           const utterance = new SpeechSynthesisUtterance(record.word);
-          utterance.lang = "fr-FR";
+          utterance.lang = frVoice.lang || "fr-CA";
           utterance.voice = frVoice;
           window.speechSynthesis.speak(utterance);
         }
@@ -1210,7 +1218,7 @@
             setGameInteractiveEnabled(true);
             updateLearningDashboard();
             try {
-              await ensureFrFrVoiceAvailable();
+              await ensureFrenchVoiceAvailable();
             } catch (voiceError) {
               setStatus(gameStatus, String(voiceError.message || voiceError), "error");
               setStatus(tableStatus, String(voiceError.message || voiceError), "error");
